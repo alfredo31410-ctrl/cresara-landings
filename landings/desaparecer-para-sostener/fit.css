@@ -1,24 +1,42 @@
 html,
 body {
-  height: 100%;
-  overflow: hidden;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.main-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .landing,
 .hero {
-  height: 100vh;
-  height: 100svh;
-  min-height: 0;
-  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  height: auto;
+}
+
+.landing {
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .hero {
+  overflow: visible;
   grid-template-columns: minmax(330px, 50vw) minmax(340px, 1fr);
 }
 
 .visual img {
   width: min(51vw, 500px);
   max-height: 88svh;
+  height: auto;
+  object-fit: contain;
 }
 
 .brand {
@@ -231,9 +249,16 @@ h1 span {
 }
 
 @media (max-width: 900px) {
+  html,
+  body,
+  body.main-page {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
   .hero {
     display: grid;
-    grid-template-rows: minmax(170px, 34svh) minmax(0, 1fr);
+    grid-template-rows: auto auto;
   }
 
   .visual {
@@ -298,7 +323,7 @@ h1 span {
 
 @media (max-width: 430px) {
   .hero {
-    grid-template-rows: minmax(154px, 31svh) minmax(0, 1fr);
+    grid-template-rows: auto auto;
   }
 
   .visual img {
@@ -613,7 +638,11 @@ h1 span {
 }
 
 .main-page .hero {
-  grid-template-columns: minmax(330px, 50vw) minmax(420px, 1fr);
+  display: grid;
+  grid-template-columns: minmax(300px, 48vw) minmax(360px, 1fr);
+  align-items: center;
+  gap: clamp(20px, 4vw, 64px);
+  padding: clamp(20px, 4vw, 56px);
 }
 
 .main-page .hero::before {
@@ -647,12 +676,15 @@ h1 span {
 .main-page .visual img {
   right: 2%;
   width: min(44vw, 560px);
-  max-height: 92svh;
+  max-height: 88svh;
+  height: auto;
+  object-fit: contain;
 }
 
 .main-page .copy {
   width: min(100%, 620px);
   padding-right: clamp(24px, 5vw, 76px);
+  align-self: center;
 }
 
 .main-page .copy h1 {
@@ -758,17 +790,25 @@ h1 span {
 
 @media (max-width: 900px) {
   .main-page .landing {
-    overflow: auto;
+    min-height: 100svh;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: visible;
     background:
       linear-gradient(180deg, rgba(41, 18, 11, 0.18) 0%, rgba(85, 35, 32, 0.54) 36%, rgba(232, 81, 149, 0.94) 64%, var(--pink) 100%),
       #2b1711;
   }
 
   .main-page .hero {
-    min-height: 100vh;
     min-height: 100svh;
     height: auto;
-    grid-template-rows: minmax(168px, 35svh) minmax(0, 1fr);
+    overflow: visible;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-items: start;
+    gap: 0;
+    padding: 16px 0 28px;
   }
 
   .main-page .hero::before {
@@ -784,20 +824,20 @@ h1 span {
   }
 
   .main-page .visual {
+    min-height: 0;
+    height: min(38svh, 330px);
     background: transparent;
   }
 
   .main-page .visual img {
     right: 50%;
     width: min(72vw, 320px);
-    max-height: 39svh;
+    max-height: 36svh;
   }
 
   .main-page .copy {
     width: min(100%, 620px);
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-bottom: 24px;
+    padding: 16px 20px 28px;
   }
 
   .main-page .copy h1 {
@@ -894,7 +934,20 @@ h1 span {
 
 @media (max-width: 430px) {
   .main-page .hero {
-    grid-template-rows: minmax(150px, 31svh) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+  }
+
+  .main-page .visual {
+    height: min(32svh, 260px);
+  }
+
+  .main-page .visual img {
+    width: min(76vw, 286px);
+    max-height: 31svh;
+  }
+
+  .main-page .copy {
+    padding-top: 12px;
   }
 
   .main-page .copy h1 {
