@@ -1,14 +1,21 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/landings",
+      "destination": "/landings/desaparecer-para-sostener",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
-      "source": "/landings/cresara-1",
-      "destination": "/landings/cresara-1/index.html"
+      "source": "/landings/desaparecer-para-sostener",
+      "destination": "/landings/desaparecer-para-sostener/index.html"
     },
     {
-      "source": "/landings/cresara-1/gracias",
-      "destination": "/landings/cresara-1/gracias.html"
+      "source": "/landings/desaparecer-para-sostener/gracias",
+      "destination": "/landings/desaparecer-para-sostener/gracias.html"
     }
   ]
 }
