@@ -1,0 +1,14 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/landings/cresara-1",
+      "destination": "/landings/cresara-1/index.html"
+    },
+    {
+      "source": "/landings/cresara-1/gracias",
+      "destination": "/landings/cresara-1/gracias.html"
+    }
+  ]
+}
