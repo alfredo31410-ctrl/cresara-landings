@@ -27,6 +27,11 @@ body {
 
 .register-shortcut {
   bottom: clamp(20px, 5svh, 42px);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
 }
 
 .copy {
@@ -57,6 +62,35 @@ h1 span {
   margin-top: clamp(10px, 2.2svh, 18px);
 }
 
+.copy-actions {
+  display: grid;
+  gap: 8px;
+  width: min(100%, 360px);
+  margin-top: clamp(16px, 3.2svh, 28px);
+  text-shadow: none;
+}
+
+.primary-cta {
+  min-height: clamp(44px, 6svh, 54px);
+  border: 0;
+  border-radius: 999px;
+  padding: 0 22px;
+  background: var(--blue);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: clamp(15px, 1.45vw, 18px);
+  font-weight: 900;
+  text-transform: uppercase;
+  box-shadow: 0 16px 30px rgba(28, 44, 120, 0.26);
+}
+
+.copy-actions span {
+  font-size: clamp(12px, 1.1vw, 14px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
 .signup-form {
   gap: clamp(7px, 1.2svh, 10px);
   margin-top: clamp(12px, 2.5svh, 22px);
@@ -64,8 +98,8 @@ h1 span {
 }
 
 .activecampaign-form {
-  max-height: clamp(176px, 31svh, 255px);
-  margin-top: clamp(12px, 2.5svh, 22px);
+  max-height: min(62svh, 560px);
+  margin-top: 0;
   overflow: hidden;
   border-radius: 8px;
   text-shadow: none;
@@ -82,6 +116,99 @@ h1 span {
 .activecampaign-form textarea,
 .activecampaign-form select {
   min-height: clamp(32px, 4.8svh, 40px) !important;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 160ms ease;
+}
+
+.modal[aria-hidden="true"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(35, 12, 25, 0.7);
+  cursor: pointer;
+}
+
+.modal__panel {
+  position: relative;
+  width: min(94vw, 480px);
+  max-height: min(90svh, 720px);
+  overflow: auto;
+  border-radius: 8px;
+  padding: clamp(18px, 3vw, 28px);
+  background: #fff;
+  color: #25141f;
+  box-shadow: 0 26px 70px rgba(45, 9, 30, 0.42);
+  outline: none;
+}
+
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 999px;
+  background: #f2e9ee;
+  color: #3b1c2d;
+  cursor: pointer;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.modal__intro {
+  padding-right: 34px;
+  margin-bottom: 14px;
+}
+
+.modal__intro span {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0 10px;
+  background: var(--pink);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.modal__intro h2 {
+  margin: 12px 0 6px;
+  color: #2c1724;
+  font-size: clamp(28px, 5vw, 38px);
+  line-height: 0.95;
+}
+
+.modal__intro p {
+  margin: 0;
+  color: #573547;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.modal .activecampaign-form {
+  max-height: none;
+  overflow: visible;
 }
 
 .signup-form input {
@@ -152,14 +279,20 @@ h1 span {
     font-size: clamp(11px, 2.8vw, 13px);
   }
 
+  .copy-actions {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: clamp(10px, 2.2svh, 16px);
+  }
+
   .signup-form {
     grid-template-columns: 1fr;
     margin-top: clamp(8px, 1.8svh, 14px);
   }
 
   .activecampaign-form {
-    max-height: clamp(150px, 28svh, 218px);
-    margin-top: clamp(8px, 1.8svh, 14px);
+    max-height: none;
+    margin-top: 0;
   }
 }
 
@@ -181,7 +314,16 @@ h1 span {
   }
 
   .activecampaign-form {
-    max-height: clamp(138px, 27svh, 198px);
+    max-height: none;
+  }
+
+  .modal {
+    padding: 12px;
+  }
+
+  .modal__panel {
+    width: min(100%, 390px);
+    padding: 16px;
   }
 }
 
@@ -199,6 +341,6 @@ h1 span {
   }
 
   .activecampaign-form {
-    max-height: 156px;
+    max-height: none;
   }
 }
