@@ -8,6 +8,24 @@
       name="description"
       content="Gracias por registrarte al curso gratis online de Cressara."
     >
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '1823119425334723');
+      fbq('track', 'PageView');
+      fbq('track', 'CompleteRegistration');
+    </script>
+    <!-- End Meta Pixel Code -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -17,7 +35,20 @@
     <link rel="stylesheet" href="/landings/desaparecer-para-sostener/styles.css">
     <link rel="stylesheet" href="/landings/desaparecer-para-sostener/fit.css">
   </head>
+
   <body class="thanks-page">
+    <!-- Meta Pixel Code - NoScript -->
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=1823119425334723&ev=CompleteRegistration&noscript=1"
+        alt=""
+      >
+    </noscript>
+    <!-- End Meta Pixel Code - NoScript -->
+
     <main class="thanks-landing" aria-labelledby="thanks-title">
       <div class="thanks-bg" aria-hidden="true">
         <div class="thanks-portrait">
@@ -70,6 +101,7 @@
             href="https://chat.whatsapp.com/KnlDhb4GDEb54Pzz0TiRb4"
             target="_blank"
             rel="noopener noreferrer"
+            onclick="if (typeof fbq === 'function') { fbq('trackCustom', 'ClickWhatsappGroup'); }"
           >
             Entrar al grupo de WhatsApp
           </a>

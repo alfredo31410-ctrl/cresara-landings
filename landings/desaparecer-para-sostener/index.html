@@ -8,6 +8,23 @@
       name="description"
       content="Curso gratis online de Cressara: En que momento empezaste a desaparecer para sostener a todos."
     >
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '1823119425334723');
+      fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -17,7 +34,20 @@
     <link rel="stylesheet" href="/landings/desaparecer-para-sostener/styles.css">
     <link rel="stylesheet" href="/landings/desaparecer-para-sostener/fit.css">
   </head>
+
   <body class="main-page">
+    <!-- Meta Pixel Code - NoScript -->
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=1823119425334723&ev=PageView&noscript=1"
+        alt=""
+      >
+    </noscript>
+    <!-- End Meta Pixel Code - NoScript -->
+
     <main class="landing">
       <section class="hero" aria-labelledby="landing-title">
         <div class="visual">
@@ -26,7 +56,9 @@
             <span class="brand__name">Cressara</span>
             <span class="brand__tagline">Transforma - Sana - Crece</span>
           </div>
+
           <img src="/landings/miriam-landing.png" alt="">
+
           <button class="register-shortcut" type="button" data-modal-open>
             <span>Regístrate</span>
             <strong>Aquí</strong>
@@ -61,7 +93,11 @@
               <span>Registro gratuito</span>
               <strong>100% online</strong>
             </div>
-            <button class="primary-cta" type="button" data-modal-open>Reservar mi lugar gratis</button>
+
+            <button class="primary-cta" type="button" data-modal-open>
+              Reservar mi lugar gratis
+            </button>
+
             <span>Recibe el acceso al curso en tu correo.</span>
           </div>
 
@@ -74,15 +110,32 @@
       </section>
     </main>
 
-    <div class="modal" id="registro-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
-      <button class="modal__backdrop" type="button" data-modal-close aria-label="Cerrar registro"></button>
+    <div
+      class="modal"
+      id="registro-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <button
+        class="modal__backdrop"
+        type="button"
+        data-modal-close
+        aria-label="Cerrar registro"
+      ></button>
+
       <section class="modal__panel" tabindex="-1">
-        <button class="modal__close" type="button" data-modal-close aria-label="Cerrar">×</button>
+        <button class="modal__close" type="button" data-modal-close aria-label="Cerrar">
+          ×
+        </button>
+
         <div class="modal__intro">
           <span>Curso gratis online</span>
           <h2 id="modal-title">Reserva tu lugar</h2>
           <p>Completa tus datos para recibir el acceso al curso del 3 de junio.</p>
         </div>
+
         <div id="registro" class="activecampaign-form">
           <div class="_form_219"></div>
           <script src="https://cefincapacitacion.activehosted.com/f/embed.php?id=219" charset="utf-8"></script>
@@ -100,6 +153,10 @@
         modal.setAttribute("aria-hidden", "false");
         document.body.classList.add("modal-open");
         panel.focus();
+
+        if (typeof fbq === "function") {
+          fbq("trackCustom", "OpenRegistrationModal");
+        }
       }
 
       function closeModal() {
@@ -109,6 +166,7 @@
 
       openButtons.forEach((button) => button.addEventListener("click", openModal));
       closeButtons.forEach((button) => button.addEventListener("click", closeModal));
+
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
           closeModal();
