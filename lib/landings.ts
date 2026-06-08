@@ -50,7 +50,7 @@ export const campaigns = {
     time: "10:00 AM (Hora CDMX)",
     badge: "Curso gratuito - 100% en linea",
     formId: 233,
-    whatsappUrl: "https://chat.whatsapp.com/Gt22rhvGYMNJb0uU5iptQ4",
+    whatsappUrl: "https://chat.whatsapp.com/KnlDhb4GDEb54Pzz0TiRb4",
     imageUrl: "/landings/cuesta-soltar/sonia-korey.png",
     backgroundUrl: "/landings/cuesta-soltar/cuesta-soltar-banner.png",
     mobileBackgroundUrl: "/landings/cuesta-soltar/korei-moviles.png",
