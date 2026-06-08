@@ -1,21 +1,9 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
   "redirects": [
     {
       "source": "/landings",
       "destination": "/landings/desaparecer-para-sostener",
       "permanent": false
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/landings/desaparecer-para-sostener",
-      "destination": "/landings/desaparecer-para-sostener/index.html"
-    },
-    {
-      "source": "/landings/desaparecer-para-sostener/gracias",
-      "destination": "/landings/desaparecer-para-sostener/gracias.html"
     }
   ]
 }
