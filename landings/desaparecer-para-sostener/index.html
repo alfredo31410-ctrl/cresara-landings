@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cressara | Curso gratis online</title>
+    <meta
+      name="description"
+      content="Curso gratis online de Cressara: En que momento empezaste a desaparecer para sostener a todos."
+    >
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '1823119425334723');
+      fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="/landings/desaparecer-para-sostener/styles.css">
+    <link rel="stylesheet" href="/landings/desaparecer-para-sostener/fit.css">
+  </head>
+
+  <body class="main-page">
+    <!-- Meta Pixel Code - NoScript -->
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=1823119425334723&ev=PageView&noscript=1"
+        alt=""
+      >
+    </noscript>
+    <!-- End Meta Pixel Code - NoScript -->
+
+    <main class="landing">
+      <section class="hero" aria-labelledby="landing-title">
+        <div class="visual">
+          <div class="brand">
+            <span class="brand__mark"></span>
+            <span class="brand__name">Cressara</span>
+            <span class="brand__tagline">Transforma - Sana - Crece</span>
+          </div>
+
+          <img src="/landings/miriam-landing.png" alt="">
+
+          <button class="register-shortcut" type="button" data-modal-open>
+            <span>Regístrate</span>
+            <strong>Aquí</strong>
+          </button>
+        </div>
+
+        <div class="copy">
+          <div class="progress-pill">Curso gratis online</div>
+
+          <h1 id="landing-title">
+            ¿En qué momento empezaste a desaparecer para sostener
+            <span>a todos?</span>
+          </h1>
+
+          <p class="landing-lead">
+            Una clase gratuita para mujeres que han aprendido a sostenerlo todo,
+            incluso cuando eso les cuesta desaparecer de sí mismas.
+          </p>
+
+          <div class="thanks-date landing-date">
+            <span>Fecha del curso</span>
+            <strong>3 de junio · 10:00 AM · Hora CDMX</strong>
+          </div>
+
+          <p class="teacher">
+            Impartido por la psicóloga:
+            <strong>Miriam Guadalupe Márquez Ordaz.</strong>
+          </p>
+
+          <div class="copy-actions registration-card">
+            <div class="registration-card__header">
+              <span>Registro gratuito</span>
+              <strong>100% online</strong>
+            </div>
+
+            <button class="primary-cta" type="button" data-modal-open>
+              Reservar mi lugar gratis
+            </button>
+
+            <span>Recibe el acceso al curso en tu correo.</span>
+          </div>
+
+          <div class="landing-reminders" aria-label="Qué recibirás al registrarte">
+            <span>Acceso a la clase</span>
+            <span>Recordatorio antes de iniciar</span>
+            <span>Siguiente paso por WhatsApp</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div
+      class="modal"
+      id="registro-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <button
+        class="modal__backdrop"
+        type="button"
+        data-modal-close
+        aria-label="Cerrar registro"
+      ></button>
+
+      <section class="modal__panel" tabindex="-1">
+        <button class="modal__close" type="button" data-modal-close aria-label="Cerrar">
+          ×
+        </button>
+
+        <div class="modal__intro">
+          <span>Curso gratis online</span>
+          <h2 id="modal-title">Reserva tu lugar</h2>
+          <p>Completa tus datos para recibir el acceso al curso del 3 de junio.</p>
+        </div>
+
+        <div id="registro" class="activecampaign-form">
+          <div class="_form_219"></div>
+          <script src="https://cefincapacitacion.activehosted.com/f/embed.php?id=219" charset="utf-8"></script>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const modal = document.querySelector("#registro-modal");
+      const panel = modal.querySelector(".modal__panel");
+      const openButtons = document.querySelectorAll("[data-modal-open]");
+      const closeButtons = document.querySelectorAll("[data-modal-close]");
+
+      function openModal() {
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+        panel.focus();
+
+        if (typeof fbq === "function") {
+          fbq("trackCustom", "OpenRegistrationModal");
+        }
+      }
+
+      function closeModal() {
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+      }
+
+      openButtons.forEach((button) => button.addEventListener("click", openModal));
+      closeButtons.forEach((button) => button.addEventListener("click", closeModal));
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
+</html>
