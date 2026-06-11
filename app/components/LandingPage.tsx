@@ -10,7 +10,7 @@ type LandingPageProps = {
 
 export function LandingPage({ campaign }: LandingPageProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const formClass = `_form_${campaign.formId}`;
+  const formClass = campaign.formId ? `_form_${campaign.formId}` : "";
 
   useEffect(() => {
     document.title = campaign.title;
@@ -21,7 +21,7 @@ export function LandingPage({ campaign }: LandingPageProps) {
   }, [campaign.title]);
 
   useEffect(() => {
-    if (!isModalOpen) return;
+    if (!isModalOpen || !campaign.formId) return;
 
     const oldScript = document.getElementById("activecampaign-form-loader");
     if (oldScript) oldScript.remove();
@@ -137,7 +137,13 @@ export function LandingPage({ campaign }: LandingPageProps) {
             </div>
 
             <div className="activecampaign-form">
-              <div className={formClass}></div>
+              {campaign.formId ? (
+                <div className={formClass}></div>
+              ) : (
+                <p className="pending-integration">
+                  El formulario de registro estara disponible muy pronto.
+                </p>
+              )}
             </div>
           </section>
         </div>

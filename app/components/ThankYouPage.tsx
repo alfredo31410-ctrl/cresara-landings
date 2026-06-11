@@ -62,13 +62,23 @@ export function ThankYouPage({ campaign }: ThankYouPageProps) {
           </div>
 
           <a
-            className="whatsapp-cta"
-            href={campaign.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleWhatsappClick}
+            className={`whatsapp-cta ${
+              campaign.whatsappUrl ? "" : "whatsapp-cta--disabled"
+            }`}
+            href={campaign.whatsappUrl || "#"}
+            target={campaign.whatsappUrl ? "_blank" : undefined}
+            rel={campaign.whatsappUrl ? "noopener noreferrer" : undefined}
+            onClick={(event) => {
+              if (!campaign.whatsappUrl) {
+                event.preventDefault();
+                return;
+              }
+              handleWhatsappClick();
+            }}
           >
-            Entrar al grupo de WhatsApp
+            {campaign.whatsappUrl
+              ? "Entrar al grupo de WhatsApp"
+              : "Grupo de WhatsApp disponible pronto"}
           </a>
 
           <p className="whatsapp-note">
