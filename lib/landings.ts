@@ -69,6 +69,8 @@ export const campaigns = {
     time: "10:00 AM (Hora CDMX)",
     badge: "Curso gratuito - 100% en linea",
     formId: 239,
+    whatsappUrl: "https://chat.whatsapp.com/KnlDhb4GDEb54Pzz0TiRb4",
+
     imageUrl: "/landings/lo-que-sigue/martha-velasco.png",
     variant: "magenta",
   },
