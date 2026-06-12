@@ -36,6 +36,10 @@ export function ThankYouPage({ campaign }: ThankYouPageProps) {
         <img className="thanks-page__background" src={campaign.backgroundUrl} alt="" />
       ) : null}
 
+      <div className="thanks-page__visual" aria-hidden="true">
+        <img src={campaign.imageUrl} alt="" />
+      </div>
+
       <section className="thanks-page__content" aria-labelledby="thanks-title">
         <div className="brand brand--thanks">
           <span className="brand__mark"></span>
@@ -49,6 +53,18 @@ export function ThankYouPage({ campaign }: ThankYouPageProps) {
           Falta entrar
           <span>al grupo</span>
         </h1>
+
+        <p className="thanks-lead">
+          Tu registro al curso gratuito de Cressara ya quedo casi listo.
+        </p>
+
+        <div className="thanks-date">
+          <span>Fecha del curso</span>
+          <strong>
+            {campaign.date} - {campaign.time}
+          </strong>
+        </div>
+
         <div className="whatsapp-card">
           <div className="progress-box">
             <div className="progress-box__label">
@@ -85,24 +101,12 @@ export function ThankYouPage({ campaign }: ThankYouPageProps) {
             Sin este paso podrias perder el acceso y los recordatorios.
           </p>
         </div>
-        <p className="thanks-lead">
-          Tu registro al curso gratuito de Cressara ya quedo casi listo.
-        </p>
- <div className="thanks-date">
-          <span>Fecha del curso</span>
-          <strong>
-            {campaign.date} - {campaign.time}
-          </strong>
-        </div>
+
         <p className="thanks-text">
           Para completar tu registro, entra ahora al grupo de WhatsApp. Ahi
           compartiremos el acceso, recordatorios y avisos importantes de la
           sesion.
         </p>
-
-       
-
-
       </section>
     </main>
   );

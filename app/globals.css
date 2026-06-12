@@ -497,6 +497,15 @@ h1 em {
   background: #301630;
 }
 
+.thanks-page--magenta::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 62%;
+  z-index: -1;
+  background: #d71970;
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+}
+
 .thanks-page__background {
   position: absolute;
   inset: 0;
@@ -507,12 +516,84 @@ h1 em {
   object-position: center;
 }
 
+.thanks-page__visual {
+  display: none;
+}
+
+.thanks-page--magenta .thanks-page__visual {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: block;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.thanks-page--magenta .thanks-page__visual img {
+  position: absolute;
+  right: clamp(30px, 6vw, 100px);
+  bottom: 0;
+  width: min(40vw, 500px);
+  height: min(91vh, 790px);
+  object-fit: contain;
+  object-position: bottom right;
+  filter: drop-shadow(0 30px 54px rgba(16, 6, 20, 0.42));
+}
+
 .thanks-page__content {
   width: min(100%, 640px);
   min-height: calc(100vh - 144px);
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.thanks-page--magenta .thanks-page__content {
+  position: relative;
+  z-index: 2;
+  width: min(55vw, 680px);
+}
+
+.thanks-page--magenta .progress-pill {
+  width: fit-content;
+  min-width: min(100%, 390px);
+  border: 2px solid rgba(255, 255, 255, 0.42);
+  background: #e92b84;
+  color: var(--white);
+  box-shadow: 8px 8px 0 #72e4c3;
+}
+
+.thanks-page--magenta h1 {
+  margin-top: 24px;
+  font-size: clamp(54px, 6.2vw, 88px);
+}
+
+.thanks-page--magenta h1 span {
+  color: #ff91b8;
+}
+
+.thanks-page--magenta .thanks-lead {
+  margin-top: 20px;
+}
+
+.thanks-page--magenta .thanks-date {
+  border-left: 5px solid #72e4c3;
+  padding-left: 16px;
+  color: var(--white);
+}
+
+.thanks-page--magenta .thanks-date span {
+  color: #72e4c3;
+}
+
+.thanks-page--magenta .whatsapp-card {
+  margin-top: 22px;
+}
+
+.thanks-page--magenta .thanks-text {
+  max-width: 520px;
+  margin-top: 18px;
+  font-size: 16px;
 }
 
 .brand--thanks {
@@ -677,6 +758,48 @@ h1 em {
     z-index: 1;
     background: rgba(48, 22, 48, 0.62);
     pointer-events: none;
+  }
+
+  .thanks-page--magenta {
+    min-height: 100vh;
+    background: #301630;
+  }
+
+  .thanks-page--magenta::before {
+    inset: 0;
+    z-index: -2;
+    background: #301630;
+    clip-path: none;
+  }
+
+  .thanks-page--magenta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: rgba(48, 22, 48, 0.68);
+    pointer-events: none;
+  }
+
+  .thanks-page--magenta .thanks-page__visual {
+    z-index: -1;
+  }
+
+  .thanks-page--magenta .thanks-page__visual img {
+    right: -70px;
+    width: min(82vw, 460px);
+    height: min(88vh, 700px);
+    opacity: 0.62;
+  }
+
+  .thanks-page--magenta .thanks-page__content {
+    z-index: 2;
+    width: min(100%, 650px);
+    min-height: calc(100vh - 56px);
+  }
+
+  .thanks-page--magenta h1 {
+    font-size: clamp(50px, 12vw, 76px);
   }
 
   .landing-hero__visual {
@@ -857,6 +980,33 @@ h1 em {
 
   .landing-page--magenta h1 {
     font-size: clamp(46px, 15vw, 62px);
+  }
+
+  .thanks-page--magenta {
+    padding: 24px 18px 42px;
+  }
+
+  .thanks-page--magenta .thanks-page__visual img {
+    right: -110px;
+    width: min(116vw, 430px);
+    height: min(78vh, 610px);
+    opacity: 0.48;
+  }
+
+  .thanks-page--magenta .brand--thanks {
+    margin-bottom: 24px;
+  }
+
+  .thanks-page--magenta h1 {
+    font-size: clamp(46px, 15vw, 62px);
+  }
+
+  .thanks-page--magenta .progress-pill {
+    min-width: 100%;
+  }
+
+  .thanks-page--magenta .thanks-text {
+    font-size: 15px;
   }
 
   .landing-page--coral h1 {

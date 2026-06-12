@@ -68,6 +68,7 @@ export const campaigns = {
     date: "17 de junio",
     time: "10:00 AM (Hora CDMX)",
     badge: "Curso gratuito - 100% en linea",
+    formId: 239,
     imageUrl: "/landings/lo-que-sigue/martha-velasco.png",
     variant: "magenta",
   },
