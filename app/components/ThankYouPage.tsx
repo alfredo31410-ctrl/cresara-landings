@@ -2,7 +2,11 @@
 
 import { useEffect } from "react";
 import type { LandingCampaign } from "@/lib/landings";
-import { META_CURRENCY, trackMetaCustomEvent, trackMetaEvent } from "@/lib/meta-pixel";
+import {
+  META_CURRENCY,
+  trackMetaCustomEvent,
+  trackMetaEvent,
+} from "@/lib/meta-pixel";
 
 type ThankYouPageProps = {
   campaign: LandingCampaign;
@@ -33,7 +37,11 @@ export function ThankYouPage({ campaign }: ThankYouPageProps) {
   return (
     <main className={`thanks-page thanks-page--${campaign.variant}`}>
       {campaign.backgroundUrl ? (
-        <img className="thanks-page__background" src={campaign.backgroundUrl} alt="" />
+        <img
+          className="thanks-page__background"
+          src={campaign.backgroundUrl}
+          alt=""
+        />
       ) : null}
 
       <div className="thanks-page__visual" aria-hidden="true">
@@ -61,7 +69,9 @@ export function ThankYouPage({ campaign }: ThankYouPageProps) {
         </h1>
 
         <p className="thanks-lead">
-          Tu registro al curso gratuito de Cressara ya quedo casi listo.
+          Para completar tu registro, entra ahora al grupo de WhatsApp. Ahi
+          compartiremos el acceso, recordatorios y avisos importantes de la
+          sesion.{" "}
         </p>
 
         <div className="thanks-date">
@@ -107,12 +117,6 @@ export function ThankYouPage({ campaign }: ThankYouPageProps) {
             Sin este paso podrias perder el acceso y los recordatorios.
           </p>
         </div>
-
-        <p className="thanks-text">
-          Para completar tu registro, entra ahora al grupo de WhatsApp. Ahi
-          compartiremos el acceso, recordatorios y avisos importantes de la
-          sesion.
-        </p>
       </section>
     </main>
   );
