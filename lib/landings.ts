@@ -15,7 +15,8 @@ export type LandingCampaign = {
   imageUrl: string;
   backgroundUrl?: string;
   mobileBackgroundUrl?: string;
-  variant: "pink" | "coral" | "magenta";
+  variant: "pink" | "coral" | "magenta" | "blackPink";
+  logoUrl?: string;
 };
 
 export const campaigns = {
@@ -73,6 +74,26 @@ export const campaigns = {
 
     imageUrl: "/landings/lo-que-sigue/martha-velasco.png",
     variant: "magenta",
+  },
+  "demasiado-tiempo": {
+    slug: "demasiado-tiempo",
+    title: "Cressara | Demasiado Tiempo para todos",
+    logoUrl: "/logos/cressara_blanco.png",
+    headline: "Demasiado tiempo",
+    highlightedHeadline: "para todos...",
+    remainingHeadline: "¿y para ti?",
+    intro:
+      "Una clase gratuita para reconocer cuanto has sostenido a los demas y empezar a recuperar espacio para ti.",
+    teacherLabel: "Impartido por:",
+    teacherName: "Miriam Guadalupe Marquez Ordaz",
+    date: "Miercoles 1 de julio",
+    time: "10:00 AM (Hora CDMX)",
+    badge: "Curso gratuito - 100% en linea",
+    formId: 257,
+    whatsappUrl: "https://chat.whatsapp.com/KnlDhb4GDEb54Pzz0TiRb4",
+
+    imageUrl: "/landings/demasiado-tiempo/miriam.png",
+    variant: "blackPink",
   },
 } satisfies Record<string, LandingCampaign>;
 

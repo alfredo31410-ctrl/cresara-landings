@@ -42,9 +42,15 @@ export function ThankYouPage({ campaign }: ThankYouPageProps) {
 
       <section className="thanks-page__content" aria-labelledby="thanks-title">
         <div className="brand brand--thanks">
-          <span className="brand__mark"></span>
-          <span className="brand__name">Cressara</span>
-          <span className="brand__tagline">Transforma - Sana - Crece</span>
+          {campaign.logoUrl ? (
+            <img className="brand__logo" src={campaign.logoUrl} alt="" />
+          ) : (
+            <>
+              <span className="brand__mark"></span>
+              <span className="brand__name">Cressara</span>
+              <span className="brand__tagline">Transforma - Sana - Crece</span>
+            </>
+          )}
         </div>
 
         <div className="progress-pill">Registro 80% completado</div>

@@ -63,9 +63,15 @@ export function LandingPage({ campaign }: LandingPageProps) {
 
         <div className="landing-hero__visual" aria-hidden="true">
           <div className="brand brand--visual">
-            <span className="brand__mark"></span>
-            <span className="brand__name">Cressara</span>
-            <span className="brand__tagline">Transforma - Sana - Crece</span>
+            {campaign.logoUrl ? (
+              <img className="brand__logo" src={campaign.logoUrl} alt="" />
+            ) : (
+              <>
+                <span className="brand__mark"></span>
+                <span className="brand__name">Cressara</span>
+                <span className="brand__tagline">Transforma - Sana - Crece</span>
+              </>
+            )}
           </div>
           <img src={campaign.imageUrl} alt="" />
         </div>
