@@ -1249,9 +1249,7 @@ h1 em {
 }
 
 .whatsapp-cta::after {
-  content: "->";
-  margin-left: 14px;
-  font-size: 1.3em;
+  display: none;
 }
 
 .whatsapp-cta:hover {
