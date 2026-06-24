@@ -43,14 +43,14 @@ button {
 @keyframes pageReveal {
   from {
     opacity: 0;
-    filter: blur(8px);
-    transform: translateY(26px) scale(0.985);
+    filter: blur(12px);
+    transform: translate3d(0, 34px, 0) scale(0.975);
   }
 
   to {
     opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
+    filter: blur(0px);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
@@ -68,14 +68,14 @@ button {
 @keyframes lineReveal {
   from {
     opacity: 0;
-    filter: blur(10px);
-    transform: translateY(34px);
+    filter: blur(14px);
+    transform: translate3d(0, 42px, 0) scale(0.98);
   }
 
   to {
     opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
+    filter: blur(0px);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
@@ -118,18 +118,18 @@ button {
 @keyframes ambientSpark {
   0%,
   100% {
-    opacity: 0.28;
+    opacity: 0.34;
     transform: translate3d(0, 0, 0) scale(1);
   }
 
   35% {
-    opacity: 0.72;
-    transform: translate3d(36px, -42px, 0) scale(1.2);
+    opacity: 0.86;
+    transform: translate3d(52px, -58px, 0) scale(1.28);
   }
 
   70% {
-    opacity: 0.48;
-    transform: translate3d(-30px, 28px, 0) scale(0.92);
+    opacity: 0.58;
+    transform: translate3d(-44px, 38px, 0) scale(0.9);
   }
 }
 
@@ -218,7 +218,7 @@ button {
     radial-gradient(circle at 14% 18%, rgba(232, 81, 149, 0.22), transparent 24%),
     radial-gradient(circle at 92% 84%, rgba(37, 99, 235, 0.2), transparent 26%),
     #000;
-  animation: pageReveal 1100ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: pageReveal 1250ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .landing-page--magenta .landing-hero::before {
@@ -391,7 +391,7 @@ button {
     104px 48px 0 5px rgba(232, 81, 149, 0.44),
     -54px 150px 0 4px rgba(37, 99, 235, 0.5),
     188px 230px 0 5px rgba(232, 81, 149, 0.34);
-  animation: ambientSpark 5.8s ease-in-out infinite;
+  animation: ambientSpark 4.8s ease-in-out infinite;
 }
 
 .landing-page--blackPink .landing-hero__content::after {
@@ -400,7 +400,7 @@ button {
   width: 220px;
   height: 220px;
   background: radial-gradient(circle, rgba(37, 99, 235, 0.28), transparent 62%);
-  animation: orbDrift 6.8s ease-in-out infinite reverse;
+  animation: orbDrift 5.8s ease-in-out infinite reverse;
 }
 
 /* Cressara brand lockup */
@@ -438,7 +438,7 @@ button {
   right: auto;
   bottom: auto;
   left: 42px;
-  animation: pageReveal 650ms cubic-bezier(0.2, 0.78, 0.2, 1) 120ms both;
+  animation: pageReveal 950ms cubic-bezier(0.16, 1, 0.3, 1) 90ms both;
 }
 
 .brand__mark {
@@ -533,7 +533,7 @@ button {
   box-shadow: none;
   min-height: 42px;
   font-size: clamp(14px, 1.35vw, 20px);
-  animation: pageReveal 650ms cubic-bezier(0.2, 0.78, 0.2, 1) 180ms both;
+  animation: pageReveal 1000ms cubic-bezier(0.16, 1, 0.3, 1) 140ms both;
 }
 
 .landing-page--blackPink .campaign-badge::after {
@@ -580,12 +580,12 @@ h1 em {
 
 .landing-page--blackPink h1 span {
   color: #e85195;
-  animation: lineReveal 920ms cubic-bezier(0.16, 1, 0.3, 1) 420ms both;
+  animation: lineReveal 1100ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both;
 }
 
 .landing-page--blackPink h1 em {
   color: #ffffff;
-  animation: lineReveal 920ms cubic-bezier(0.16, 1, 0.3, 1) 540ms both;
+  animation: lineReveal 1100ms cubic-bezier(0.16, 1, 0.3, 1) 390ms both;
 }
 
 .landing-page--blackPink h1 {
@@ -596,7 +596,7 @@ h1 em {
   font-size: clamp(48px, 5.25vw, 78px);
   font-weight: 900;
   line-height: 0.88;
-  animation: lineReveal 920ms cubic-bezier(0.16, 1, 0.3, 1) 260ms both;
+  animation: lineReveal 1100ms cubic-bezier(0.16, 1, 0.3, 1) 220ms both;
 }
 
 .landing-page--blackPink .landing-intro {
@@ -606,7 +606,7 @@ h1 em {
   margin-top: 18px;
   color: #eeeeee;
   font-size: clamp(16px, 1.45vw, 21px);
-  animation: pageReveal 700ms cubic-bezier(0.2, 0.78, 0.2, 1) 340ms both;
+  animation: pageReveal 1050ms cubic-bezier(0.16, 1, 0.3, 1) 430ms both;
 }
 
 .landing-page--magenta .landing-intro {
@@ -624,7 +624,7 @@ h1 em {
   z-index: 1;
   order: 7;
   color: #2563eb;
-  animation: pageReveal 700ms cubic-bezier(0.2, 0.78, 0.2, 1) 520ms both;
+  animation: pageReveal 1050ms cubic-bezier(0.16, 1, 0.3, 1) 640ms both;
 }
 
 .landing-page--blackPink .teacher {
@@ -632,7 +632,7 @@ h1 em {
   z-index: 1;
   order: 6;
   margin-top: 22px;
-  animation: pageReveal 700ms cubic-bezier(0.2, 0.78, 0.2, 1) 460ms both;
+  animation: pageReveal 1050ms cubic-bezier(0.16, 1, 0.3, 1) 560ms both;
 }
 
 .landing-page--blackPink .teacher strong {
@@ -655,7 +655,7 @@ h1 em {
   margin-top: 22px;
   font-size: clamp(15px, 1.45vw, 20px);
   animation:
-    pageReveal 900ms cubic-bezier(0.16, 1, 0.3, 1) 520ms both,
+    pageReveal 1100ms cubic-bezier(0.16, 1, 0.3, 1) 500ms both,
     ctaPulse 3.4s ease-in-out 1.45s infinite;
 }
 
@@ -882,7 +882,7 @@ h1 em {
     radial-gradient(circle at 88% 22%, rgba(232, 81, 149, 0.2), transparent 24%),
     radial-gradient(circle at 14% 86%, rgba(37, 99, 235, 0.18), transparent 24%),
     #000;
-  animation: pageReveal 1000ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: pageReveal 1250ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .thanks-page--blackPink::before {
@@ -905,7 +905,7 @@ h1 em {
   background: #e85195;
   color: #ffffff;
   box-shadow: none;
-  animation: pageReveal 650ms cubic-bezier(0.2, 0.78, 0.2, 1) 160ms both;
+  animation: pageReveal 1000ms cubic-bezier(0.16, 1, 0.3, 1) 140ms both;
 }
 
 .thanks-page--blackPink .progress-pill::after {
@@ -929,21 +929,21 @@ h1 em {
   z-index: 1;
   font-size: clamp(50px, 5.4vw, 76px);
   line-height: 0.9;
-  animation: lineReveal 920ms cubic-bezier(0.16, 1, 0.3, 1) 240ms both;
+  animation: lineReveal 1100ms cubic-bezier(0.16, 1, 0.3, 1) 220ms both;
 }
 
 .thanks-page--blackPink .thanks-lead {
   position: relative;
   z-index: 1;
   margin-top: 18px;
-  animation: pageReveal 700ms cubic-bezier(0.2, 0.78, 0.2, 1) 320ms both;
+  animation: pageReveal 1050ms cubic-bezier(0.16, 1, 0.3, 1) 390ms both;
 }
 
 .thanks-page--blackPink .thanks-date {
   position: relative;
   z-index: 1;
   margin-top: 18px;
-  animation: pageReveal 700ms cubic-bezier(0.2, 0.78, 0.2, 1) 400ms both;
+  animation: pageReveal 1050ms cubic-bezier(0.16, 1, 0.3, 1) 500ms both;
 }
 
 .thanks-page--blackPink .whatsapp-cta {
@@ -1009,7 +1009,7 @@ h1 em {
     90px 64px 0 5px rgba(232, 81, 149, 0.42),
     -46px 190px 0 4px rgba(37, 99, 235, 0.5),
     160px 260px 0 5px rgba(232, 81, 149, 0.3);
-  animation: ambientSpark 6s ease-in-out infinite;
+  animation: ambientSpark 5s ease-in-out infinite;
 }
 
 .thanks-page--blackPink .thanks-page__content::after {
@@ -1018,7 +1018,7 @@ h1 em {
   width: 260px;
   height: 260px;
   background: radial-gradient(circle, rgba(232, 81, 149, 0.22), transparent 62%);
-  animation: orbDrift 7.2s ease-in-out infinite reverse;
+  animation: orbDrift 6s ease-in-out infinite reverse;
 }
 
 .thanks-page--blackPink .whatsapp-card {
@@ -1029,7 +1029,7 @@ h1 em {
   padding: 18px;
   border-color: rgba(37, 99, 235, 0.32);
   box-shadow: 0 24px 64px rgba(37, 99, 235, 0.18), 0 0 0 6px rgba(232, 81, 149, 0.08);
-  animation: pageReveal 900ms cubic-bezier(0.16, 1, 0.3, 1) 520ms both;
+  animation: pageReveal 1100ms cubic-bezier(0.16, 1, 0.3, 1) 520ms both;
 }
 
 .thanks-page--blackPink .whatsapp-card::before {
