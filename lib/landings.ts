@@ -90,7 +90,7 @@ export const campaigns = {
     time: "10:00 AM (Hora CDMX)",
     badge: "Curso gratuito - 100% en linea",
     formId: 257,
-    whatsappUrl: "https://chat.whatsapp.com/KnlDhb4GDEb54Pzz0TiRb4",
+    whatsappUrl: "https://chat.whatsapp.com/DXzUbADP8qP98MFGy939Jt",
 
     imageUrl: "/landings/demasiado-tiempo/miriam.png",
     variant: "blackPink",
