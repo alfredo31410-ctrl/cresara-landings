@@ -114,13 +114,12 @@ export const campaigns = {
     time: "10:00 AM (Hora CDMX)",
     badge: "GRATIS · 100% EN LÍNEA",
 
-    formId: 257,
-    whatsappUrl: "https://chat.whatsapp.com/DXzUbADP8qP98MFGy939Jt",
-    backgroundUrl: "/landings/ya-no-mas-migajas/banner-2-korei.png",
+    formId: 271,
+    whatsappUrl: "https://chat.whatsapp.com/LY3ZRdfH96lG5BqaYR8hOM",
 
-    imageUrl: "/landings/ya-no-mas-migajas/sonia-korey.png",
-    variant: "coral",
-  },
+    imageUrl: "/landings/ya-no-mas-migajas/sonia-korey.png",  
+  variant: "blackPink",
+},
 } satisfies Record<string, LandingCampaign>;
 
 export const getCampaign = (slug: keyof typeof campaigns) => campaigns[slug];
