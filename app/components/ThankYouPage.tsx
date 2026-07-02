@@ -25,7 +25,7 @@ export function ThankYouPage({ campaign }: ThankYouPageProps) {
   }, [campaign.title]);
 
   const handleWhatsappClick = () => {
-    trackMetaCustomEvent("ClickWhatsappGroup", {
+    trackMetaCustomEvent("WhatsAppGroupClick", {
       content_name: campaign.title,
       content_category: "Grupo de WhatsApp",
       status: "whatsapp_group_click",

@@ -13,6 +13,13 @@ const FORM_CLASS = ACTIVE_CAMPAIGN_FORM_ID
   : "";
 
 const CRESSARA_LOGO = "/logos/cressara_logo_normal.png";
+const PUBLIC_ASSET_BASE =
+  process.env.NODE_ENV === "production"
+    ? "https://cresara-landings.vercel.app"
+    : "";
+
+const publicAsset = (path: string) =>
+  path.startsWith("/") ? `${PUBLIC_ASSET_BASE}${path}` : path;
 
 export default function YaNoMasMigajasPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -106,7 +113,7 @@ useEffect(() => {
         <section className="migajas-hero">
           <article className="migajas-card">
             <div className="migajas-brand" aria-label="Cressara">
-              <img src={CRESSARA_LOGO} alt="Cressara" />
+              <img src={publicAsset(CRESSARA_LOGO)} alt="Cressara" />
             </div>
 
             <p className="migajas-badge">{campaign.badge}</p>
@@ -161,9 +168,11 @@ useEffect(() => {
             <div className="migajas-portrait-glow" aria-hidden="true" />
 
             <img
-              src={campaign.imageUrl}
+              src={publicAsset(campaign.imageUrl)}
               alt="Psicóloga Sonia Korey González Juárez"
               className="migajas-portrait"
+              width={285}
+              height={593}
             />
           </div>
         </section>

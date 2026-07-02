@@ -9,6 +9,13 @@ const campaign = getCampaign("ya-no-mas-migajas");
 
 const CRESSARA_LOGO = "/logos/cressara_logo_normal.png";
 const WHATSAPP_URL = campaign.whatsappUrl;
+const PUBLIC_ASSET_BASE =
+  process.env.NODE_ENV === "production"
+    ? "https://cresara-landings.vercel.app"
+    : "";
+
+const publicAsset = (path: string) =>
+  path.startsWith("/") ? `${PUBLIC_ASSET_BASE}${path}` : path;
 
 export default function GraciasYaNoMasMigajasPage() {
   useEffect(() => {
@@ -34,7 +41,7 @@ export default function GraciasYaNoMasMigajasPage() {
   }, []);
 
   const handleWhatsAppClick = () => {
-    trackMetaCustomEvent("JoinWhatsAppGroup", {
+    trackMetaCustomEvent("WhatsAppGroupClick", {
       content_name: "Ya no más migajas",
       content_category: "Terapia grupal gratuita",
       funnel_step: "whatsapp_group_click",
@@ -69,7 +76,7 @@ export default function GraciasYaNoMasMigajasPage() {
         <section className="thankyou-shell">
           <article className="thankyou-card">
             <div className="thankyou-brand">
-              <img src={CRESSARA_LOGO} alt="Cressara" />
+              <img src={publicAsset(CRESSARA_LOGO)} alt="Cressara" />
             </div>
 
             <h1>
@@ -157,9 +164,11 @@ export default function GraciasYaNoMasMigajasPage() {
             </div>
 
             <img
-              src={campaign.imageUrl}
+              src={publicAsset(campaign.imageUrl)}
               alt="Psicóloga Sonia Korey González Juárez"
               className="thankyou-portrait"
+              width={285}
+              height={593}
             />
           </div>
         </section>
