@@ -3,7 +3,10 @@
 import { useEffect } from "react";
 import { MetaPixel } from "@/app/components/MetaPixel";
 import { getCampaign } from "@/lib/landings";
-import { trackMetaCustomEvent, trackMetaEvent } from "@/lib/meta-pixel";
+import {
+  trackMetaCustomEventWhenReady,
+  trackMetaEventWhenReady,
+} from "@/lib/meta-pixel";
 
 const campaign = getCampaign("ya-no-mas-migajas");
 
@@ -21,27 +24,27 @@ export default function GraciasYaNoMasMigajasPage() {
   useEffect(() => {
     document.title = "¡Registro confirmado! | Ya no más migajas";
 
-    const trackingKey = "migajas-complete-registration-tracked";
+    const trackingKey = "migajas-complete-registration-tracked-v2";
 
     if (window.sessionStorage.getItem(trackingKey)) {
       return;
     }
 
-    const timer = window.setTimeout(() => {
-      trackMetaEvent("CompleteRegistration", {
+    return trackMetaEventWhenReady(
+      "CompleteRegistration",
+      {
         content_name: "Ya no más migajas",
         content_category: "Terapia grupal gratuita",
         status: "registered",
-      });
-
-      window.sessionStorage.setItem(trackingKey, "true");
-    }, 650);
-
-    return () => window.clearTimeout(timer);
+      },
+      {
+        onTracked: () => window.sessionStorage.setItem(trackingKey, "true"),
+      },
+    );
   }, []);
 
   const handleWhatsAppClick = () => {
-    trackMetaCustomEvent("WhatsAppGroupClick", {
+    trackMetaCustomEventWhenReady("WhatsAppGroupClick", {
       content_name: "Ya no más migajas",
       content_category: "Terapia grupal gratuita",
       funnel_step: "whatsapp_group_click",

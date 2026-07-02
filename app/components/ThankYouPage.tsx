@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import type { LandingCampaign } from "@/lib/landings";
 import {
   META_CURRENCY,
-  trackMetaCustomEvent,
-  trackMetaEvent,
+  trackMetaCustomEventWhenReady,
+  trackMetaEventWhenReady,
 } from "@/lib/meta-pixel";
 
 type ThankYouPageProps = {
@@ -15,7 +15,7 @@ type ThankYouPageProps = {
 export function ThankYouPage({ campaign }: ThankYouPageProps) {
   useEffect(() => {
     document.title = `Gracias | ${campaign.title}`;
-    trackMetaEvent("CompleteRegistration", {
+    return trackMetaEventWhenReady("CompleteRegistration", {
       content_name: campaign.title,
       content_category: "Curso gratuito",
       status: "completed",
@@ -25,7 +25,7 @@ export function ThankYouPage({ campaign }: ThankYouPageProps) {
   }, [campaign.title]);
 
   const handleWhatsappClick = () => {
-    trackMetaCustomEvent("WhatsAppGroupClick", {
+    trackMetaCustomEventWhenReady("WhatsAppGroupClick", {
       content_name: campaign.title,
       content_category: "Grupo de WhatsApp",
       status: "whatsapp_group_click",
