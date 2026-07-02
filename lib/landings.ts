@@ -95,6 +95,32 @@ export const campaigns = {
     imageUrl: "/landings/demasiado-tiempo/miriam.png",
     variant: "blackPink",
   },
+  "ya-no-mas-migajas": {
+    slug: "ya-no-mas-migajas",
+    title: "Cressara | Ya no más migajas",
+    logoUrl: "/logos/cressara_blanco.png",
+
+    headline: "Ya no más migajas:",
+    highlightedHeadline: "Terapia grupal",
+    remainingHeadline: "para dejar de conformarte con un amor a medias",
+
+    intro:
+      "Una terapia grupal gratuita para identificar por qué sigues aceptando relaciones a medias y comenzar a construir vínculos más sanos contigo y con los demás.",
+
+    teacherLabel: "Impartido por la psicóloga:",
+    teacherName: "Sonia Korey González Juárez",
+
+    date: "Miércoles 15 de julio",
+    time: "10:00 AM (Hora CDMX)",
+    badge: "GRATIS · 100% EN LÍNEA",
+
+    formId: 257,
+    whatsappUrl: "https://chat.whatsapp.com/DXzUbADP8qP98MFGy939Jt",
+    backgroundUrl: "/landings/ya-no-mas-migajas/banner-2-korei.png",
+
+    imageUrl: "/landings/ya-no-mas-migajas/sonia-korey.png",
+    variant: "coral",
+  },
 } satisfies Record<string, LandingCampaign>;
 
 export const getCampaign = (slug: keyof typeof campaigns) => campaigns[slug];
