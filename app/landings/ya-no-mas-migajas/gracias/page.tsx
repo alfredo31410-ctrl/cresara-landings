@@ -24,23 +24,11 @@ export default function GraciasYaNoMasMigajasPage() {
   useEffect(() => {
     document.title = "¡Registro confirmado! | Ya no más migajas";
 
-    const trackingKey = "migajas-complete-registration-tracked-v2";
-
-    if (window.sessionStorage.getItem(trackingKey)) {
-      return;
-    }
-
-    return trackMetaEventWhenReady(
-      "CompleteRegistration",
-      {
-        content_name: "Ya no más migajas",
-        content_category: "Terapia grupal gratuita",
-        status: "registered",
-      },
-      {
-        onTracked: () => window.sessionStorage.setItem(trackingKey, "true"),
-      },
-    );
+    return trackMetaEventWhenReady("CompleteRegistration", {
+      content_name: "Ya no más migajas",
+      content_category: "Terapia grupal gratuita",
+      status: "completed",
+    });
   }, []);
 
   const handleWhatsAppClick = () => {
