@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { MetaPixel } from "@/app/components/MetaPixel";
@@ -131,6 +131,17 @@ useEffect(() => {
               <span className="migajas-title-black">con un amor a medias</span>
             </h1>
 
+                        <button
+              type="button"
+              className="migajas-primary-cta"
+              onClick={() => openRegistrationModal("hero")}
+            >
+              <span className="migajas-cta-arrow" aria-hidden="true">
+                →
+              </span>
+              Quiero mi acceso gratuito
+            </button>
+
             <div className="migajas-date">
               <span className="migajas-date-icon" aria-hidden="true">
                 ◷
@@ -152,16 +163,7 @@ useEffect(() => {
               empezar a elegir vínculos más sanos para ti.
             </p>
 
-            <button
-              type="button"
-              className="migajas-primary-cta"
-              onClick={() => openRegistrationModal("hero")}
-            >
-              <span className="migajas-cta-arrow" aria-hidden="true">
-                →
-              </span>
-              Quiero mi acceso gratuito
-            </button>
+
           </article>
 
           <div className="migajas-portrait-wrap">
