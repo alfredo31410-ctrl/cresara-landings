@@ -1,7 +1,10 @@
 export const META_PIXEL_ID = "1823119425334723";
 export const META_CURRENCY = "MXN";
 
-type MetaEventData = Record<string, string | number | boolean>;
+type MetaEventData = Record<
+  string,
+  string | number | boolean | string[] | number[]
+>;
 
 type TrackWhenReadyOptions = {
   intervalMs?: number;
