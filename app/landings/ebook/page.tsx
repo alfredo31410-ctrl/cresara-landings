@@ -4,6 +4,13 @@ import { EbookMotion } from "./EbookMotion";
 import { EbookTracking } from "./EbookTracking";
 import "./ebook.css";
 
+const ASSET_ORIGIN =
+  process.env.NODE_ENV === "production"
+    ? "https://cresara-landings.vercel.app"
+    : "";
+
+const assetUrl = (path: string) => `${ASSET_ORIGIN}${path}`;
+
 export default function EbookLandingPage() {
   return (
     <>
@@ -16,7 +23,7 @@ export default function EbookLandingPage() {
       <section className="ebook-hero" aria-labelledby="ebook-title">
         <Image
           className="ebook-hero__background"
-          src="/landings/ebook/hero.png"
+          src={assetUrl("/landings/ebook/hero.png")}
           alt="Mujer reconectando consigo misma junto al ebook Un espacio para volver a ti"
           fill
           sizes="100vw"
@@ -26,7 +33,7 @@ export default function EbookLandingPage() {
         <div className="ebook-hero__content">
           <Image
             className="ebook-logo"
-            src="/logos/cressara_logo_normal.png"
+            src={assetUrl("/logos/cressara_logo_normal.png")}
             alt="Cressara — Transforma, sana, crece"
             width={190}
             height={76}
@@ -293,7 +300,7 @@ export default function EbookLandingPage() {
         <div className="ebook-product__visual" aria-hidden="true">
           <Image
             className="ebook-product__image"
-            src="/landings/ebook/product-showcase.png"
+            src={assetUrl("/landings/ebook/product-showcase.png")}
             alt=""
             fill
             sizes="(max-width: 900px) 100vw, 45vw"
@@ -402,7 +409,7 @@ export default function EbookLandingPage() {
 
       <footer className="ebook-footer">
         <Image
-          src="/logos/cressara_logo_normal.png"
+          src={assetUrl("/logos/cressara_logo_normal.png")}
           alt="Cressara"
           width={130}
           height={52}

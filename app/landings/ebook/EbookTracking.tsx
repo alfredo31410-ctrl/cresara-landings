@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import {
   META_CURRENCY,
-  trackMetaEvent,
   trackMetaEventWhenReady,
 } from "@/lib/meta-pixel";
 
@@ -32,8 +31,38 @@ export function EbookTracking() {
       'a[data-meta-checkout="ebook"]',
     );
 
-    const trackCheckout = () => {
-      trackMetaEvent("InitiateCheckout", ebookEventData);
+    let navigationTimeoutId: number | undefined;
+    let cancelCheckoutTracking: (() => void) | undefined;
+    let navigationPending = false;
+
+    const trackCheckout = (event: MouseEvent) => {
+      const link = event.currentTarget as HTMLAnchorElement;
+      const isRegularClick =
+        event.button === 0 &&
+        !event.metaKey &&
+        !event.ctrlKey &&
+        !event.shiftKey &&
+        !event.altKey;
+
+      cancelCheckoutTracking = trackMetaEventWhenReady(
+        "InitiateCheckout",
+        ebookEventData,
+        {
+          intervalMs: 50,
+          maxAttempts: 6,
+        },
+      );
+
+      if (!isRegularClick) return;
+
+      event.preventDefault();
+
+      if (navigationPending) return;
+      navigationPending = true;
+
+      navigationTimeoutId = window.setTimeout(() => {
+        window.location.assign(link.href);
+      }, 300);
     };
 
     checkoutLinks.forEach((link) => {
@@ -42,6 +71,12 @@ export function EbookTracking() {
 
     return () => {
       cancelViewContentTracking();
+      cancelCheckoutTracking?.();
+
+      if (navigationTimeoutId) {
+        window.clearTimeout(navigationTimeoutId);
+      }
+
       checkoutLinks.forEach((link) => {
         link.removeEventListener("click", trackCheckout);
       });
