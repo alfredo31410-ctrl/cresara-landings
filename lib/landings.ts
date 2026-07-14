@@ -115,7 +115,7 @@ export const campaigns = {
     badge: "GRATIS · 100% EN LÍNEA",
 
     formId: 271,
-    whatsappUrl: "https://chat.whatsapp.com/FLOuT86gPh1EatzVleKKvv",
+    whatsappUrl: "https://chat.whatsapp.com/GUaRWvOzBqSGIUu48miR56",
 
     imageUrl: "/landings/ya-no-mas-migajas/sonia-korey.png",  
   variant: "blackPink",
