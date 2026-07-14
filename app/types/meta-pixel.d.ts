@@ -5,7 +5,10 @@ declare global {
     fbq?: (
       action: "init" | "track" | "trackCustom",
       eventOrPixelId: string,
-      data?: Record<string, string | number | boolean>,
+      data?: Record<
+        string,
+        string | number | boolean | string[] | number[]
+      >,
     ) => void;
   }
 }

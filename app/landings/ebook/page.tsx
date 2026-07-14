@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { MetaPixel } from "@/app/components/MetaPixel";
 import { EbookMotion } from "./EbookMotion";
 import { EbookTracking } from "./EbookTracking";
@@ -21,23 +20,31 @@ export default function EbookLandingPage() {
         <EbookTracking />
 
       <section className="ebook-hero" aria-labelledby="ebook-title">
-        <Image
-          className="ebook-hero__background"
-          src={assetUrl("/landings/ebook/hero.png")}
-          alt="Mujer reconectando consigo misma junto al ebook Un espacio para volver a ti"
-          fill
-          sizes="100vw"
-          priority
-        />
+        <picture className="ebook-hero__media">
+          <source
+            media="(max-width: 900px)"
+            srcSet={assetUrl("/landings/ebook/hero-mobile-v1.webp")}
+          />
+          <img
+            className="ebook-hero__background"
+            src={assetUrl("/landings/ebook/hero-desktop-v1.webp")}
+            alt="Mujer reconectando consigo misma junto al ebook Un espacio para volver a ti"
+            width={1920}
+            height={885}
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
 
         <div className="ebook-hero__content">
-          <Image
+          <img
             className="ebook-logo"
-            src={assetUrl("/logos/cressara_logo_normal.png")}
+            src={assetUrl("/logos/cressara-logo-v1.webp")}
             alt="Cressara — Transforma, sana, crece"
-            width={190}
-            height={76}
-            priority
+            width={520}
+            height={327}
+            fetchPriority="high"
+            decoding="async"
           />
 
           <p className="ebook-eyebrow">Un espacio creado para ti</p>
@@ -298,12 +305,14 @@ export default function EbookLandingPage() {
         aria-labelledby="product-title"
       >
         <div className="ebook-product__visual" aria-hidden="true">
-          <Image
+          <img
             className="ebook-product__image"
-            src={assetUrl("/landings/ebook/product-showcase.png")}
+            src={assetUrl("/landings/ebook/product-showcase-v1.webp")}
             alt=""
-            fill
-            sizes="(max-width: 900px) 100vw, 45vw"
+            width={1200}
+            height={881}
+            loading="lazy"
+            decoding="async"
           />
 
           <span className="ebook-product__badge">
@@ -408,11 +417,13 @@ export default function EbookLandingPage() {
       </section>
 
       <footer className="ebook-footer">
-        <Image
-          src={assetUrl("/logos/cressara_logo_normal.png")}
+        <img
+          src={assetUrl("/logos/cressara-logo-v1.webp")}
           alt="Cressara"
-          width={130}
-          height={52}
+          width={520}
+          height={327}
+          loading="lazy"
+          decoding="async"
         />
         <p>Con amor, para ti. ♡</p>
         <small>© 2026 Cressara. Todos los derechos reservados.</small>
