@@ -1,16 +1,14 @@
 ﻿"use client";
 
 import { useEffect, useState } from "react";
-import { MetaPixel } from "@/app/components/MetaPixel";
+import { ActiveCampaignEmbedForm } from "@/app/components/landing-core/ActiveCampaignEmbedForm";
 import { getCampaign } from "@/lib/landings";
+import { campaignConfig } from "./campaign.config";
 import { trackMetaCustomEvent, trackMetaEvent } from "@/lib/meta-pixel";
 
 const campaign = getCampaign("ya-no-mas-migajas");
 
-const ACTIVE_CAMPAIGN_FORM_ID = campaign.formId;
-const FORM_CLASS = ACTIVE_CAMPAIGN_FORM_ID
-  ? `_form_${ACTIVE_CAMPAIGN_FORM_ID}`
-  : "";
+const ACTIVE_CAMPAIGN_FORM_ID = campaignConfig.activeCampaign.formId;
 
 const CRESSARA_LOGO = "/logos/cressara_logo_normal.png";
 const PUBLIC_ASSET_BASE =
@@ -37,53 +35,6 @@ export default function YaNoMasMigajasPage() {
     return () => window.clearTimeout(timer);
   }, []);
 
-useEffect(() => {
-  if (!isModalOpen || !ACTIVE_CAMPAIGN_FORM_ID || !FORM_CLASS) return;
-
-  const scriptId = "active-campaign-migajas-form";
-
-  /*
-    Esperamos un instante para que el modal ya exista por completo
-    antes de pedirle a ActiveCampaign que inyecte el formulario.
-    Esto evita cargas duplicadas o trabadas en desarrollo.
-  */
-  const loadFormTimer = window.setTimeout(() => {
-    const formContainer = document.getElementById(
-      "migajas-activecampaign-form",
-    );
-
-    if (!formContainer) return;
-
-    document.getElementById(scriptId)?.remove();
-
-    formContainer.innerHTML = `<div class="${FORM_CLASS}"></div>`;
-
-    const script = document.createElement("script");
-
-    script.id = scriptId;
-    script.src = `https://cefincapacitacion.activehosted.com/f/embed.php?id=${ACTIVE_CAMPAIGN_FORM_ID}`;
-    script.type = "text/javascript";
-    script.charset = "utf-8";
-    script.async = true;
-
-    document.body.appendChild(script);
-  }, 80);
-
-  return () => {
-    window.clearTimeout(loadFormTimer);
-
-    document.getElementById(scriptId)?.remove();
-
-    const formContainer = document.getElementById(
-      "migajas-activecampaign-form",
-    );
-
-    if (formContainer) {
-      formContainer.innerHTML = "";
-    }
-  };
-}, [isModalOpen]);
-
   const openRegistrationModal = (source: "hero" | "mobile_sticky") => {
     trackMetaCustomEvent("OpenRegistrationModal", {
       content_name: "Ya no más migajas",
@@ -98,8 +49,6 @@ useEffect(() => {
 
   return (
     <>
-      <MetaPixel id="meta-pixel-ya-no-mas-migajas" />
-
       <main className="migajas-page">
         <span className="migajas-heart heart-one" aria-hidden="true" />
         <span className="migajas-heart heart-two" aria-hidden="true" />
@@ -226,11 +175,7 @@ useEffect(() => {
                 id="migajas-activecampaign-form"
                 className="migajas-form-container"
               >
-                {!ACTIVE_CAMPAIGN_FORM_ID && (
-                  <p className="migajas-form-unavailable">
-                    El formulario estará disponible muy pronto.
-                  </p>
-                )}
+                <ActiveCampaignEmbedForm formId={ACTIVE_CAMPAIGN_FORM_ID} campaignSlug={campaignConfig.slug} loadingMessage="Cargando formulario seguro…" errorMessage="No pudimos cargar el formulario." />
               </div>
             </div>
           </div>

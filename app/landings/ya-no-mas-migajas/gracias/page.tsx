@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { MetaPixel } from "@/app/components/MetaPixel";
 import { getCampaign } from "@/lib/landings";
 import {
   trackMetaCustomEventWhenReady,
@@ -42,11 +41,6 @@ export default function GraciasYaNoMasMigajasPage() {
 
   return (
     <>
-      <MetaPixel
-        id="meta-pixel-ya-no-mas-migajas-thankyou"
-        noscriptEvent="CompleteRegistration"
-      />
-
       <main className="migajas-thankyou-page">
         <span className="thank-heart thank-heart-one" aria-hidden="true">
           ♥

@@ -10,7 +10,6 @@ export type LandingCampaign = {
   date: string;
   time: string;
   badge: string;
-  formId?: number;
   whatsappUrl?: string;
   imageUrl: string;
   backgroundUrl?: string;
@@ -32,7 +31,6 @@ export const campaigns = {
     date: "3 de junio",
     time: "10:00 AM (Hora CDMX)",
     badge: "Curso gratis online",
-    formId: 219,
     whatsappUrl: "https://chat.whatsapp.com/KnlDhb4GDEb54Pzz0TiRb4",
     imageUrl: "/landings/desaparecer-para-sostener/miriam-landing.png",
     variant: "pink",
@@ -50,7 +48,6 @@ export const campaigns = {
     date: "10 de junio",
     time: "10:00 AM (Hora CDMX)",
     badge: "Curso gratuito - 100% en linea",
-    formId: 233,
     whatsappUrl: "https://chat.whatsapp.com/KnlDhb4GDEb54Pzz0TiRb4",
     imageUrl: "/landings/cuesta-soltar/sonia-korey.png",
     backgroundUrl: "/landings/cuesta-soltar/cuesta-soltar-banner.png",
@@ -69,7 +66,6 @@ export const campaigns = {
     date: "17 de junio",
     time: "10:00 AM (Hora CDMX)",
     badge: "Curso gratuito - 100% en linea",
-    formId: 239,
     whatsappUrl: "https://chat.whatsapp.com/KnlDhb4GDEb54Pzz0TiRb4",
 
     imageUrl: "/landings/lo-que-sigue/martha-velasco.png",
@@ -89,7 +85,6 @@ export const campaigns = {
     date: "Miercoles 1 de julio",
     time: "10:00 AM (Hora CDMX)",
     badge: "Curso gratuito - 100% en linea",
-    formId: 257,
     whatsappUrl: "https://chat.whatsapp.com/DXzUbADP8qP98MFGy939Jt",
 
     imageUrl: "/landings/demasiado-tiempo/miriam.png",
@@ -114,7 +109,6 @@ export const campaigns = {
     time: "10:00 AM (Hora CDMX)",
     badge: "GRATIS · 100% EN LÍNEA",
 
-    formId: 271,
     whatsappUrl: "https://chat.whatsapp.com/GUaRWvOzBqSGIUu48miR56",
 
     imageUrl: "/landings/ya-no-mas-migajas/sonia-korey.png",  

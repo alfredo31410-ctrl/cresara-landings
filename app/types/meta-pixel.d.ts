@@ -9,6 +9,7 @@ declare global {
         string,
         string | number | boolean | string[] | number[]
       >,
+      options?: { eventID?: string },
     ) => void;
   }
 }

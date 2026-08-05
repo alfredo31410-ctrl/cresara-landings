@@ -3,14 +3,15 @@
 import { useEffect, useState } from "react";
 import type { LandingCampaign } from "@/lib/landings";
 import { trackMetaCustomEvent, trackMetaEvent } from "@/lib/meta-pixel";
+import { ActiveCampaignEmbedForm } from "@/app/components/landing-core/ActiveCampaignEmbedForm";
 
 type LandingPageProps = {
   campaign: LandingCampaign;
+  formId: number;
 };
 
-export function LandingPage({ campaign }: LandingPageProps) {
+export function LandingPage({ campaign, formId }: LandingPageProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const formClass = campaign.formId ? `_form_${campaign.formId}` : "";
 
   useEffect(() => {
     document.title = campaign.title;
@@ -19,24 +20,6 @@ export function LandingPage({ campaign }: LandingPageProps) {
       content_category: "Curso gratuito",
     });
   }, [campaign.title]);
-
-  useEffect(() => {
-    if (!isModalOpen || !campaign.formId) return;
-
-    const oldScript = document.getElementById("activecampaign-form-loader");
-    if (oldScript) oldScript.remove();
-
-    const formRoot = document.querySelector(`.${formClass}`);
-    if (formRoot) formRoot.innerHTML = "";
-
-    const script = document.createElement("script");
-    script.id = "activecampaign-form-loader";
-    script.src = `https://cefincapacitacion.activehosted.com/f/embed.php?id=${campaign.formId}`;
-    script.type = "text/javascript";
-    script.charset = "utf-8";
-    script.async = true;
-    document.body.appendChild(script);
-  }, [campaign.formId, formClass, isModalOpen]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -143,13 +126,7 @@ export function LandingPage({ campaign }: LandingPageProps) {
             </div>
 
             <div className="activecampaign-form">
-              {campaign.formId ? (
-                <div className={formClass}></div>
-              ) : (
-                <p className="pending-integration">
-                  El formulario de registro estara disponible muy pronto.
-                </p>
-              )}
+              <ActiveCampaignEmbedForm formId={formId} campaignSlug={campaign.slug} loadingMessage="Cargando formulario seguro…" errorMessage="No pudimos cargar el formulario." />
             </div>
           </section>
         </div>

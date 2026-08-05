@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { MetaPixel } from "@/app/components/MetaPixel";
 
 export const metadata: Metadata = {
   title: "Cressara",
@@ -21,7 +22,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body><MetaPixel />{children}</body>
     </html>
   );
 }

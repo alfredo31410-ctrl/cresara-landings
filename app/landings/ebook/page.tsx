@@ -1,4 +1,3 @@
-import { MetaPixel } from "@/app/components/MetaPixel";
 import { EbookMotion } from "./EbookMotion";
 import { EbookTracking } from "./EbookTracking";
 import "./ebook.css";
@@ -13,8 +12,6 @@ const assetUrl = (path: string) => `${ASSET_ORIGIN}${path}`;
 export default function EbookLandingPage() {
   return (
     <>
-      <MetaPixel id="meta-pixel-ebook" />
-
       <main className="ebook-page">
         <EbookMotion />
         <EbookTracking />

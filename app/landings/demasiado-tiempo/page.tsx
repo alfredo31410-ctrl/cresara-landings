@@ -1,6 +1,6 @@
 import { LandingPage } from "@/app/components/LandingPage";
-import { MetaPixel } from "@/app/components/MetaPixel";
 import { getCampaign } from "@/lib/landings";
+import { campaignConfig } from "./campaign.config";
 import { notFound } from "next/navigation";
 
 export default function DemasiadoTiempoPage() {
@@ -11,9 +11,6 @@ export default function DemasiadoTiempoPage() {
   }
 
   return (
-    <>
-      <MetaPixel id="meta-pixel-demasiado-tiempo" />
-      <LandingPage campaign={campaign} />
-    </>
+    <LandingPage campaign={campaign} formId={campaignConfig.activeCampaign.formId} />
   );
 }
