@@ -1,1 +1,201 @@
-.page { min-height: 100svh; display: grid; place-items: center; padding: 30px 18px; color: #192b58; background: radial-gradient(circle at 8% 18%, #fce8f1 0, transparent 34%), radial-gradient(circle at 92% 80%, #e9e9ff 0, transparent 38%), #fff; font-family: Montserrat, Arial, sans-serif; }.card { width: 100%; max-width: 620px; padding: clamp(24px, 4vw, 42px); border: 1px solid rgba(224,71,140,.13); border-radius: 28px; background: rgba(255,255,255,.9); box-shadow: 0 22px 70px rgba(51,49,103,.12); }.brand { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }.brand img { width: 132px; height: 52px; object-fit: contain; object-position: left center; }.brand span { color: #777b91; font-size: 11px; font-weight: 700; letter-spacing: .12em; }.redirect, .missing { text-align: center; }.redirect p, .missing p { color: #46516e; font-weight: 800; line-height: 1.5; }.spinner { width: 42px; height: 42px; margin: 8px auto 18px; border: 4px solid #f6d5e5; border-top-color: #e0478c; border-radius: 50%; animation: spin 1s linear infinite; }.redirect small { display: block; margin-top: 14px; color: #737b92; font-size: 11px; line-height: 1.45; }.secondary { display: inline-flex; min-height: 44px; align-items: center; margin-top: 22px; padding: 0 17px; border-radius: 999px; background: #eef0ff; color: #3f4c94; font-size: 12px; font-weight: 800; text-decoration: none; }@keyframes spin { to { transform: rotate(360deg); } }
+.page {
+  --campaign-navy: #09265f;
+  --campaign-pink: #ed3f83;
+  --campaign-pink-dark: #cf286d;
+  --campaign-blush: #fcebf3;
+  --campaign-lavender: #f2efff;
+  --campaign-cream: #fff8ec;
+  --campaign-peach: #f3c7aa;
+  --campaign-sage: #b9c2ae;
+  --campaign-surface: #ffffff;
+  --campaign-muted: #536079;
+  --campaign-border: rgba(237, 63, 131, 0.18);
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  overflow: hidden;
+  place-items: center;
+  padding: 24px 18px;
+  color: var(--campaign-navy);
+  background:
+    radial-gradient(circle at 12% 15%, var(--campaign-blush) 0, transparent 34%),
+    radial-gradient(circle at 90% 84%, var(--campaign-lavender) 0, transparent 38%),
+    var(--campaign-cream);
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+.page::before,
+.page::after {
+  position: absolute;
+  width: 240px;
+  height: 180px;
+  border-radius: 55% 45% 40% 60% / 58% 42% 58% 42%;
+  content: "";
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.page::before {
+  top: -100px;
+  right: -70px;
+  background: var(--campaign-peach);
+}
+
+.page::after {
+  bottom: -100px;
+  left: -80px;
+  background: var(--campaign-sage);
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(480px, 100%);
+  padding: clamp(25px, 6vw, 42px) clamp(20px, 6vw, 42px);
+  border: 1px solid var(--campaign-border);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 24px 70px rgba(9, 38, 95, 0.13);
+  text-align: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.brand img {
+  width: 132px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.brand span {
+  color: var(--campaign-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--campaign-pink-dark);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.card h1 {
+  margin: 0;
+  color: var(--campaign-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 6vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.whatsappIcon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin: 22px auto 16px;
+  place-items: center;
+  border-radius: 50%;
+  background: #1fa855;
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(31, 168, 85, 0.2);
+}
+
+.whatsappIcon span {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.redirect,
+.missing {
+  text-align: center;
+}
+
+.redirect p,
+.missing p {
+  margin: 0;
+  color: var(--campaign-muted);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 4px auto 17px;
+  border: 4px solid #d9f1e1;
+  border-top-color: #1fa855;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.redirect small {
+  display: block;
+  margin-top: 13px;
+  color: var(--campaign-muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.secondary {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 21px;
+  padding: 0 18px;
+  border: 1px solid rgba(9, 38, 95, 0.12);
+  border-radius: 999px;
+  background: var(--campaign-lavender);
+  color: var(--campaign-navy);
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.secondary:hover {
+  background: #e6e2fc;
+}
+
+.secondary:focus-visible {
+  outline: 3px solid rgba(237, 63, 131, 0.35);
+  outline-offset: 3px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 430px) {
+  .page {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 24px 18px 28px;
+    border-radius: 24px;
+  }
+
+  .brand span {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}
