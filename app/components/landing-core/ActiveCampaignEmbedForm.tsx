@@ -55,9 +55,10 @@ export function ActiveCampaignEmbedForm({
       const form = event.target as HTMLFormElement;
       try {
         const response = await fetch(
-          `/api/landings/${campaignSlug}/registration-intent${window.location.search}`,
+          `/api/landings/${encodeURIComponent(campaignSlug)}/registration-intent`,
           {
             method: "POST",
+            credentials: "same-origin",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({}),
           },
