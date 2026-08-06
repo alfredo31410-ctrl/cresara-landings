@@ -73,7 +73,8 @@
   grid-template-areas:
     "copy form"
     "benefits form"
-    "event form";
+    "event form"
+    "sessions form";
   align-items: start;
   gap: 18px clamp(34px, 5vw, 82px);
   width: min(1220px, 100%);
@@ -180,6 +181,16 @@
   line-height: 1.55;
 }
 
+.recognition {
+  max-width: 610px;
+  margin: 0 0 13px;
+  color: var(--campaign-navy);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.45;
+}
+
 .formCard {
   grid-area: form;
   align-self: center;
@@ -189,6 +200,14 @@
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 28px 80px rgba(9, 38, 95, 0.14);
+}
+
+.pressure {
+  margin: 0 0 20px;
+  color: var(--campaign-pink-dark);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.45;
 }
 
 .formCard .eyebrow {
@@ -210,6 +229,14 @@
   color: var(--campaign-text-muted);
   font-size: 13px;
   line-height: 1.5;
+}
+
+.formMicrocopy {
+  margin: 15px 0 0;
+  color: var(--campaign-text-muted);
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .privacy {
@@ -270,6 +297,47 @@
   letter-spacing: 0.06em;
 }
 
+.sessions {
+  grid-area: sessions;
+  max-width: 680px;
+  margin-top: 2px;
+}
+
+.sessions h2 {
+  margin: 0 0 12px;
+  color: var(--campaign-navy);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.sessionList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.sessionList article {
+  padding: 13px 14px;
+  border: 1px solid rgba(237, 63, 131, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.sessionList strong {
+  display: block;
+  color: var(--campaign-navy);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.sessionList p {
+  margin: 7px 0 0;
+  color: var(--campaign-text-muted);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
 @media (max-width: 800px) {
   .hero {
     display: flex;
@@ -282,7 +350,8 @@
   .copy,
   .formCard,
   .eventInfo,
-  .benefits {
+  .benefits,
+  .sessions {
     width: 100%;
     max-width: none;
   }
@@ -309,6 +378,16 @@
     font-size: 12px;
   }
 
+  .sessions {
+    order: 5;
+    margin-top: 24px;
+  }
+
+  .sessionList {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
   .brand {
     margin-bottom: 18px;
   }
@@ -330,6 +409,10 @@
   .subtitle {
     margin-top: 18px;
     font-size: 14px;
+  }
+
+  .recognition {
+    font-size: 11px;
   }
 }
 

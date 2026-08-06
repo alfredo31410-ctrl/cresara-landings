@@ -27,6 +27,11 @@
   background: #ed3f83;
   color: #ffffff;
   cursor: pointer;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
   transition: background-color 160ms ease, box-shadow 160ms ease;
 }
 
