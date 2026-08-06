@@ -1,1 +1,56 @@
-.activeCampaignWrapper { width: 100%; color: #59617b; font-size: 12px; line-height: 1.45; }.activeCampaignWrapper :global(._form_315) { width: 100%; }.activeCampaignWrapper :global(form) { font-family: Montserrat, Arial, sans-serif; }.activeCampaignWrapper :global(input), .activeCampaignWrapper :global(select), .activeCampaignWrapper :global(textarea) { min-height: 44px; border-radius: 11px; }.activeCampaignWrapper :global(button), .activeCampaignWrapper :global(input[type="submit"]) { min-height: 48px; border-radius: 999px; cursor: pointer; }.activeCampaignWrapper :global(a) { color: #d63c80; }
+.activeCampaignWrapper {
+  width: 100%;
+  color: #536079;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.activeCampaignWrapper :global(._form_315) {
+  width: 100%;
+}
+
+.activeCampaignWrapper :global(form) {
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+.activeCampaignWrapper :global(input),
+.activeCampaignWrapper :global(select),
+.activeCampaignWrapper :global(textarea) {
+  min-height: 44px;
+  border-radius: 11px;
+}
+
+.activeCampaignWrapper :global(button),
+.activeCampaignWrapper :global(input[type="submit"]) {
+  min-height: 48px;
+  border-radius: 999px;
+  background: #ed3f83;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.activeCampaignWrapper :global(button:hover),
+.activeCampaignWrapper :global(input[type="submit"]:hover) {
+  background: #cf286d;
+  box-shadow: 0 8px 18px rgba(207, 40, 109, 0.2);
+}
+
+.activeCampaignWrapper :global(button:focus-visible),
+.activeCampaignWrapper :global(input:focus-visible),
+.activeCampaignWrapper :global(select:focus-visible),
+.activeCampaignWrapper :global(textarea:focus-visible) {
+  outline: 3px solid rgba(237, 63, 131, 0.34);
+  outline-offset: 2px;
+}
+
+.activeCampaignWrapper :global(a) {
+  color: #cf286d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activeCampaignWrapper :global(button),
+  .activeCampaignWrapper :global(input[type="submit"]) {
+    transition: none;
+  }
+}

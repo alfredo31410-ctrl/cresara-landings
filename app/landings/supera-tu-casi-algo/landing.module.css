@@ -1,6 +1,354 @@
-.page { min-height: 100svh; color: #192b58; background: radial-gradient(circle at 8% 18%, #fce8f1 0, transparent 34%), radial-gradient(circle at 92% 80%, #e9e9ff 0, transparent 38%), #fff; font-family: Montserrat, Arial, sans-serif; }
-.accessAlert { position: fixed; z-index: 5; top: 14px; left: 50%; width: min(calc(100% - 28px), 620px); margin: 0; padding: 12px 16px; transform: translateX(-50%); border: 1px solid #f3bfd5; border-radius: 12px; background: #fff6fa; color: #a93269; font-size: 12px; font-weight: 800; text-align: center; box-shadow: 0 8px 22px rgba(87,36,80,.1); }
-.hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(360px, .9fr); gap: clamp(32px, 5vw, 90px); align-items: center; width: min(1160px, 100%); min-height: 100svh; margin: auto; padding: 38px 28px; }
-.copy { max-width: 650px; }.brand { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }.brand img { width: 132px; height: 52px; object-fit: contain; object-position: left center; }.brand span { color: #777b91; font-size: 11px; font-weight: 700; letter-spacing: .12em; }.badge { display: inline-flex; padding: 9px 15px; border-radius: 999px; background: #fbe6f0; color: #dd4388; font-size: 12px; font-weight: 800; }.eyebrow { margin: 20px 0 10px; color: #e0478c; font-size: 11px; font-weight: 900; letter-spacing: .14em; }.copy h1 { max-width: 650px; margin: 0; color: #182b5a; font-size: clamp(42px, 5vw, 70px); font-weight: 900; letter-spacing: -.065em; line-height: .98; }.copy h1 em { color: #e0478c; font-style: normal; }.subtitle { max-width: 570px; margin: 22px 0 0; color: #4f5872; font-size: 16px; font-weight: 600; line-height: 1.5; }.benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 9px 20px; max-width: 600px; margin: 24px 0; padding: 0; list-style: none; color: #37435f; font-size: 13px; font-weight: 700; }.benefits li { position: relative; padding-left: 22px; }.benefits li::before { position: absolute; left: 0; color: #e0478c; content: "✓"; font-weight: 900; }.eventInfo { display: grid; gap: 3px; width: fit-content; padding: 16px 19px; border-left: 4px solid #e0478c; background: rgba(255,255,255,.7); color: #59617b; font-size: 12px; line-height: 1.35; }.eventInfo strong { color: #182b5a; font-size: 14px; letter-spacing: .06em; }.formCard { width: 100%; padding: clamp(24px, 4vw, 42px); border: 1px solid rgba(224,71,140,.13); border-radius: 28px; background: rgba(255,255,255,.9); box-shadow: 0 22px 70px rgba(51,49,103,.12); }.formCard h2 { margin: 0; color: #182b5a; font-size: clamp(26px, 3vw, 34px); letter-spacing: -.04em; }.formCard > p:not(.eyebrow):not(.privacy) { margin: 10px 0 22px; color: #626b83; font-size: 13px; line-height: 1.45; }.privacy { margin: 17px 0 0; color: #8a8ea0; font-size: 10px; line-height: 1.5; text-align: center; }
-@media (max-width: 800px) { .hero { display: block; min-height: 0; padding: 22px 17px 32px; }.copy { max-width: none; }.brand { margin-bottom: 18px; }.brand span { display: none; }.copy h1 { font-size: clamp(40px, 11vw, 56px); }.subtitle { font-size: 14px; }.benefits { gap: 8px; font-size: 12px; }.eventInfo { margin-bottom: 22px; }.formCard { padding: 22px 18px; } }
-@media (max-width: 380px) { .benefits { grid-template-columns: 1fr; }.copy h1 { font-size: 39px; }.eventInfo { font-size: 11px; } }
+.page {
+  --campaign-navy: #09265f;
+  --campaign-pink: #ed3f83;
+  --campaign-pink-dark: #cf286d;
+  --campaign-blush: #fcebf3;
+  --campaign-lavender: #f2efff;
+  --campaign-cream: #fff8ec;
+  --campaign-peach: #f3c7aa;
+  --campaign-sage: #b9c2ae;
+  --campaign-surface: #ffffff;
+  --campaign-text-muted: #536079;
+  --campaign-border: rgba(237, 63, 131, 0.18);
+  min-height: 100svh;
+  overflow: hidden;
+  color: var(--campaign-navy);
+  background:
+    radial-gradient(circle at 4% 10%, var(--campaign-blush) 0, transparent 30%),
+    radial-gradient(circle at 96% 88%, var(--campaign-lavender) 0, transparent 34%),
+    var(--campaign-cream);
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+.page::before,
+.page::after {
+  position: fixed;
+  z-index: 0;
+  width: 280px;
+  height: 280px;
+  border-radius: 47% 53% 61% 39% / 45% 42% 58% 55%;
+  pointer-events: none;
+  content: "";
+  opacity: 0.32;
+}
+
+.page::before {
+  top: -150px;
+  right: -90px;
+  background: var(--campaign-peach);
+  transform: rotate(18deg);
+}
+
+.page::after {
+  bottom: -170px;
+  left: -100px;
+  background: var(--campaign-sage);
+  transform: rotate(-24deg);
+}
+
+.accessAlert {
+  position: fixed;
+  z-index: 5;
+  top: 14px;
+  left: 50%;
+  width: min(calc(100% - 28px), 620px);
+  margin: 0;
+  padding: 12px 16px;
+  transform: translateX(-50%);
+  border: 1px solid #edb3cc;
+  border-radius: 14px;
+  background: var(--campaign-surface);
+  color: var(--campaign-pink-dark);
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(9, 38, 95, 0.12);
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.16fr) minmax(360px, 0.84fr);
+  grid-template-areas:
+    "copy form"
+    "benefits form"
+    "event form";
+  align-items: start;
+  gap: 18px clamp(34px, 5vw, 82px);
+  width: min(1220px, 100%);
+  min-height: 100svh;
+  margin: auto;
+  padding: clamp(32px, 5vw, 68px) clamp(18px, 4vw, 42px);
+}
+
+.copy {
+  grid-area: copy;
+  max-width: 700px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.brand img {
+  width: 132px;
+  height: 54px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.brand span {
+  color: var(--campaign-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.badge {
+  display: inline-flex;
+  padding: 9px 15px;
+  border: 1px solid rgba(237, 63, 131, 0.16);
+  border-radius: 999px;
+  background: rgba(252, 235, 243, 0.82);
+  color: var(--campaign-pink-dark);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.illustration {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 680px);
+  margin: 20px 0 24px;
+  overflow: hidden;
+  border-radius: 42% 58% 46% 54% / 20% 24% 76% 80%;
+  background: var(--campaign-cream);
+  box-shadow: 0 22px 50px rgba(9, 38, 95, 0.08);
+}
+
+.illustration::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: inherit;
+  content: "";
+}
+
+.illustrationImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--campaign-pink-dark);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.copy h1 {
+  max-width: 660px;
+  margin: 0;
+  color: var(--campaign-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 5.2vw, 72px);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.copy h1 em {
+  color: var(--campaign-pink-dark);
+  font-style: italic;
+}
+
+.subtitle {
+  max-width: 590px;
+  margin: 22px 0 0;
+  color: var(--campaign-text-muted);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.formCard {
+  grid-area: form;
+  align-self: center;
+  width: 100%;
+  padding: clamp(24px, 4vw, 44px);
+  border: 1px solid var(--campaign-border);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 28px 80px rgba(9, 38, 95, 0.14);
+}
+
+.formCard .eyebrow {
+  margin-top: 0;
+}
+
+.formCard h2 {
+  margin: 0;
+  color: var(--campaign-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 3.2vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.formIntro {
+  margin: 12px 0 24px;
+  color: var(--campaign-text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.privacy {
+  margin: 17px 0 0;
+  color: #69748b;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.benefits {
+  display: grid;
+  grid-area: benefits;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+  max-width: 660px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--campaign-text-muted);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.benefits li {
+  position: relative;
+  padding-left: 23px;
+}
+
+.benefits li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--campaign-pink);
+  content: "✓";
+  font-weight: 900;
+}
+
+.eventInfo {
+  display: grid;
+  grid-area: event;
+  gap: 4px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 16px 20px;
+  border-left: 4px solid var(--campaign-pink);
+  border-radius: 0 18px 18px 0;
+  background: rgba(255, 255, 255, 0.64);
+  color: var(--campaign-text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.eventInfo strong {
+  color: var(--campaign-navy);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-height: 0;
+    padding: 22px 17px 36px;
+  }
+
+  .copy,
+  .formCard,
+  .eventInfo,
+  .benefits {
+    width: 100%;
+    max-width: none;
+  }
+
+  .copy {
+    order: 1;
+  }
+
+  .eventInfo {
+    order: 2;
+    margin: 20px 0;
+  }
+
+  .formCard {
+    order: 3;
+    align-self: stretch;
+    padding: 25px 18px;
+  }
+
+  .benefits {
+    order: 4;
+    margin-top: 24px;
+    gap: 10px;
+    font-size: 12px;
+  }
+
+  .brand {
+    margin-bottom: 18px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .illustration {
+    margin: 18px 0 22px;
+    border-radius: 38% 62% 44% 56% / 19% 22% 78% 81%;
+  }
+
+  .copy h1 {
+    font-size: clamp(40px, 11vw, 58px);
+    line-height: 1;
+  }
+
+  .subtitle {
+    margin-top: 18px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .copy h1 {
+    font-size: 40px;
+  }
+
+  .eventInfo {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page * {
+    scroll-behavior: auto !important;
+  }
+}
