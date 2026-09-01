@@ -27,6 +27,7 @@ export function ActiveCampaignEmbedForm({
   const allowSubmitRef = useRef(false);
 
   const handleRetry = useCallback(() => {
+    embedHostRef.current?.replaceChildren();
     setStatus("loading");
     setRetryKey((value) => value + 1);
   }, []);
@@ -72,8 +73,29 @@ export function ActiveCampaignEmbedForm({
       }
     };
 
+    const removeDuplicateEmbeds = () => {
+      const selector = `._form_${formId}`;
+      const containers = Array.from(host.children).filter(
+        (element) => element instanceof HTMLElement && element.matches(selector),
+      );
+
+      containers.slice(1).forEach((container) => container.remove());
+
+      const forms = Array.from(host.querySelectorAll("form"));
+      forms.slice(1).forEach((form) => form.remove());
+
+      const scripts = Array.from(
+        host.querySelectorAll<HTMLScriptElement>(
+          `script[data-active-campaign-form="${formId}"]`,
+        ),
+      );
+      scripts.slice(1).forEach((script) => script.remove());
+
+      return forms[0] ?? null;
+    };
+
     const attachSubmitHandler = () => {
-      const form = host.querySelector("form");
+      const form = removeDuplicateEmbeds() ?? host.querySelector("form");
       if (!form) return false;
       if (form.dataset.registrationIntentAttached !== "true") {
         form.dataset.registrationIntentAttached = "true";
@@ -89,28 +111,41 @@ export function ActiveCampaignEmbedForm({
       }
     });
 
-    const formContainer = document.createElement("div");
-    formContainer.className = `_form_${formId}`;
-    host.appendChild(formContainer);
-
-    const script = document.createElement("script");
-    script.src = `https://${ACTIVE_CAMPAIGN_EMBED_HOST}/f/embed.php?id=${formId}`;
-    script.async = true;
-    script.charset = "utf-8";
-    script.addEventListener(
-      "error",
-      () => {
-        if (!cancelled && !loaded) {
-          window.clearTimeout(timeout);
-          observer.disconnect();
-          setStatus("error");
-        }
-      },
-      { once: true },
+    const existingContainer = Array.from(host.children).find(
+      (element) =>
+        element instanceof HTMLElement &&
+        element.classList.contains(`_form_${formId}`),
     );
 
+    if (!existingContainer) {
+      const formContainer = document.createElement("div");
+      formContainer.className = `_form_${formId}`;
+      host.appendChild(formContainer);
+    }
+
+    let script = host.querySelector<HTMLScriptElement>(
+      `script[data-active-campaign-form="${formId}"]`,
+    );
+
+    const handleScriptError = () => {
+      if (!cancelled && !loaded) {
+        window.clearTimeout(timeout);
+        observer.disconnect();
+        setStatus("error");
+      }
+    };
+
     observer.observe(host, { childList: true, subtree: true });
-    host.appendChild(script);
+
+    if (!script) {
+      script = document.createElement("script");
+      script.src = `https://${ACTIVE_CAMPAIGN_EMBED_HOST}/f/embed.php?id=${formId}`;
+      script.async = true;
+      script.charset = "utf-8";
+      script.dataset.activeCampaignForm = String(formId);
+      script.addEventListener("error", handleScriptError, { once: true });
+      host.appendChild(script);
+    }
 
     const timeout = window.setTimeout(() => {
       if (!cancelled && !loaded && !attachSubmitHandler()) {
@@ -125,9 +160,11 @@ export function ActiveCampaignEmbedForm({
       cancelled = true;
       window.clearTimeout(timeout);
       observer.disconnect();
-      const form = host.querySelector("form");
-      form?.removeEventListener("submit", submitHandler, true);
-      if (script.parentNode === host) host.removeChild(script);
+      script?.removeEventListener("error", handleScriptError);
+      host.querySelectorAll("form").forEach((form) => {
+        form.removeEventListener("submit", submitHandler, true);
+        delete form.dataset.registrationIntentAttached;
+      });
     };
   }, [campaignSlug, formId, retryKey]);
 
