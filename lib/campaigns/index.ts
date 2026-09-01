@@ -17,4 +17,10 @@ const campaigns: Record<string, CampaignConfig> = {
   [limites.slug]: limites,
 };
 export function getCampaignConfig(slug: string): CampaignConfig | null { return campaigns[slug] || null; }
-export function getWhatsAppGroupUrl(config: CampaignConfig) { return config.whatsapp ? process.env[config.whatsapp.environmentVariable] : undefined; }
+export function getWhatsAppGroupUrl(config: CampaignConfig) {
+  if (!config.whatsapp) return undefined;
+  if (config.whatsapp.url) return config.whatsapp.url;
+  return config.whatsapp.environmentVariable
+    ? process.env[config.whatsapp.environmentVariable]
+    : undefined;
+}
