@@ -7,6 +7,6 @@ export const campaignConfig = {
     joinGroupContentName: "Aprender a poner límites",
   },
   whatsapp: {
-    url: "https://chat.whatsapp.com/Ddkeil72hg3I5IzcCXD6ap",
+    url: "https://chat.whatsapp.com/KWdfZHZYEfwBfKVWBagCSM",
   },
 } as const;
