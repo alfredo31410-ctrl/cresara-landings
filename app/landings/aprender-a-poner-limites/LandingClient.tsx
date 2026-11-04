@@ -58,8 +58,8 @@ export default function LandingClient({
           <p className={styles.eyebrow}>CLASE GRATUITA · EN VIVO</p>
 
           <h1>
-            Aprender a poner límites
-            <span>sin sentir culpa</span>
+            Cómo poner límites
+            <span>sin culpa</span>
           </h1>
 
           <p className={styles.lead}>
@@ -77,11 +77,11 @@ export default function LandingClient({
           <dl className={styles.details} aria-label="Datos de la clase">
             <div>
               <dt>Fecha</dt>
-              <dd>14 de septiembre</dd>
+              <dd>Lunes 9 de noviembre</dd>
             </div>
             <div>
               <dt>Hora</dt>
-              <dd>8:00 PM · CDMX</dd>
+              <dd>11:00 AM · CDMX</dd>
             </div>
             <div>
               <dt>Modalidad</dt>
@@ -94,7 +94,7 @@ export default function LandingClient({
             className={styles.primaryCta}
             onClick={() => setIsModalOpen(true)}
           >
-            Quiero aprender a poner límites
+            Registrarme ahora
             <span aria-hidden="true">→</span>
           </button>
 
@@ -122,7 +122,7 @@ export default function LandingClient({
         className={styles.mobileCta}
         onClick={() => setIsModalOpen(true)}
       >
-        Registrarme gratis
+        Registrarme ahora
       </button>
 
       {isModalOpen && (
@@ -148,8 +148,8 @@ export default function LandingClient({
 
             <div className={styles.modalHeading}>
               <p>RESERVA TU LUGAR GRATIS</p>
-              <h2 id="limites-form-title">Aprender a poner límites</h2>
-              <span>14 de septiembre · 8:00 PM · Hora CDMX</span>
+              <h2 id="limites-form-title">Cómo poner límites sin culpa</h2>
+              <span>Lunes 9 de noviembre · 11:00 AM · Hora CDMX</span>
             </div>
 
             <ActiveCampaignEmbedForm

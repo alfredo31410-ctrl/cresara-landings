@@ -7,7 +7,7 @@ import { readRegistrationSession } from "@/lib/landing-platform/campaign-session
 import styles from "./gracias.module.css";
 
 export const metadata: Metadata = {
-  title: "Registro confirmado | Aprender a poner límites",
+  title: "Registro confirmado | Cómo poner límites sin culpa",
   description: "Tu lugar fue reservado. Entra al grupo oficial de WhatsApp para completar tu registro.",
   robots: { index: false, follow: false },
 };
@@ -95,8 +95,8 @@ export default async function GraciasPage() {
 
           <div className={styles.event}>
             <span>CLASE GRATUITA EN VIVO</span>
-            <strong>Aprender a poner límites</strong>
-            <p>14 de septiembre · 8:00 PM · Hora CDMX</p>
+            <strong>Cómo poner límites sin culpa</strong>
+            <p>Lunes 9 de noviembre · 11:00 AM · Hora CDMX</p>
           </div>
         </article>
 

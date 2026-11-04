@@ -375,7 +375,7 @@
 }
 
 .form > p,
-.form [role="alert"] {
+.form > [role="alert"] {
   padding: 13px;
   border-radius: 12px;
   background: #fff0f5;
@@ -383,52 +383,8 @@
   font-weight: 700;
 }
 
-.form [role="alert"] button {
+.form > [role="alert"] button {
   margin-top: 8px;
-}
-
-.form :global(._form_337) {
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-}
-
-.form :global(._form-content) {
-  font-family: "Montserrat", Arial, sans-serif !important;
-}
-
-.form :global(._form_element) {
-  margin-bottom: 14px !important;
-}
-
-.form :global(._form-label) {
-  color: var(--navy) !important;
-  font-weight: 800 !important;
-}
-
-.form :global(input[type="text"]),
-.form :global(input[type="email"]),
-.form :global(input[type="tel"]),
-.form :global(select) {
-  min-height: 50px !important;
-  border: 1px solid rgba(23, 41, 90, 0.2) !important;
-  border-radius: 12px !important;
-  background: white !important;
-  color: var(--ink) !important;
-  font: inherit !important;
-  box-shadow: none !important;
-}
-
-.form :global(._submit) {
-  width: 100% !important;
-  min-height: 55px !important;
-  border: 0 !important;
-  border-radius: 999px !important;
-  background: var(--pink) !important;
-  color: white !important;
-  font: 900 16px "Montserrat", Arial, sans-serif !important;
-  cursor: pointer !important;
 }
 
 @media (max-width: 1020px) and (min-width: 861px) {

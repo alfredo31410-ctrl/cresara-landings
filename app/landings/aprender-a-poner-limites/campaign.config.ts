@@ -1,12 +1,12 @@
 export const campaignConfig = {
   slug: "aprender-a-poner-limites",
-  displayName: "Aprender a poner límites",
-  activeCampaign: { formId: 337 },
+  displayName: "Cómo poner límites sin culpa",
+  activeCampaign: { formId: 377 },
   tracking: {
-    completeRegistrationContentName: "Aprender a poner límites",
-    joinGroupContentName: "Aprender a poner límites",
+    completeRegistrationContentName: "Cómo poner límites sin culpa",
+    joinGroupContentName: "Cómo poner límites sin culpa",
   },
   whatsapp: {
-    url: "https://chat.whatsapp.com/L9ID4y9fIkaEbc5uTkqIOL",
+    url: "https://chat.whatsapp.com/JOtei0wVr0iCxUCpVJbvmS",
   },
 } as const;
