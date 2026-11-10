@@ -114,6 +114,23 @@ export const campaigns = {
     imageUrl: "/landings/ya-no-mas-migajas/sonia-korey.png",  
   variant: "blackPink",
 },
+  "privacidad-o-confianza": {
+    slug: "privacidad-o-confianza",
+    title: "Cressara | Privacidad o confianza",
+    logoUrl: "/logos/cressara_letras_invertidas.png",
+    headline: "¿Tener privacidad significa",
+    highlightedHeadline: "esconder algo?",
+    intro:
+      "Una clase gratuita y en vivo para comprender cómo hablar de privacidad, confianza y límites sin vivir vigilando tu relación.",
+    teacherLabel: "Con:",
+    teacherName: "Mariel Medina",
+    date: "Lunes 16 de noviembre",
+    time: "11:00 AM (Hora CDMX)",
+    badge: "Clase gratuita y en vivo",
+    whatsappUrl: "https://chat.whatsapp.com/FnaPv6Bo6sL6L80UjQUdXG",
+    imageUrl: "/landings/privacidad-o-confianza/hero-privacidad-confianza.png",
+    variant: "coral",
+  },
 } satisfies Record<string, LandingCampaign>;
 
 export const getCampaign = (slug: keyof typeof campaigns) => campaigns[slug];
