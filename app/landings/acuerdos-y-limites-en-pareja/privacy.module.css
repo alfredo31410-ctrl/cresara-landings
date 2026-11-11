@@ -23,7 +23,7 @@
       rgba(250, 244, 239, 0.96) 66%,
       #f8f0eb 100%
     ),
-    url("/landings/acuerdos-y-limites-en-pareja/hero-acuerdos-limites.png")
+    url("/landings/acuerdos-y-limites-en-pareja/hero-acuerdos-limites.webp")
       center / cover no-repeat;
 }
 .texture {
@@ -269,7 +269,7 @@
         rgba(247, 238, 232, 0.06) 29%,
         #f7eee8 55%
       ),
-      url("/landings/acuerdos-y-limites-en-pareja/hero-acuerdos-limites.png") 29%
+      url("/landings/acuerdos-y-limites-en-pareja/hero-acuerdos-limites.webp") 29%
         top / auto 57% no-repeat;
   }
   .brand {
