@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 import { cookies } from "next/headers";
 import { getCampaignConfig } from "@/lib/campaigns";
 import type { CampaignConfig } from "@/lib/campaigns/types";
-export type RegistrationSession = { campaignSlug: string; registrationId: string; emailHash: string; expiresAt: number; completeRegistrationClaimed: boolean; joinGroupClaimed: boolean; };
+export type RegistrationSession = { campaignSlug: string; registrationId: string; emailHash: string; expiresAt: number; leadClaimed: boolean; completeRegistrationClaimed: boolean; joinGroupClaimed: boolean; };
 export type WhatsAppIntent = { campaignSlug: string; registrationId: string; expiresAt: number; };
 export type RegistrationIntent = { campaignSlug: string; formId: number; attribution: Record<string, string>; createdAt: number; expiresAt: number; };
 const TTL = 86400; const INTENT_TTL = 120; const REGISTRATION_INTENT_TTL = 900;
@@ -17,8 +17,8 @@ export const getRegistrationCookieName = (slug: string) => `cresara_registration
 export const getWhatsAppIntentCookieName = (slug: string) => `cresara_whatsapp_intent_${requireConfig(slug).slug}`;
 export const getRegistrationIntentCookieName = (slug: string) => `cresara_registration_intent_${requireConfig(slug).slug}`;
 export const hashEmail = (email: string) => crypto.createHash("sha256").update(email.trim().toLowerCase()).digest("hex");
-export async function createRegistrationSession(config: CampaignConfig) { const payload: RegistrationSession = { campaignSlug: config.slug, registrationId: crypto.randomUUID(), emailHash: "", expiresAt: Date.now() + TTL * 1000, completeRegistrationClaimed: false, joinGroupClaimed: false }; (await cookies()).set(getRegistrationCookieName(config.slug), encode(payload), options(TTL)); return payload; }
-export function createRegistrationSessionPayload(config: CampaignConfig): RegistrationSession { return { campaignSlug: config.slug, registrationId: crypto.randomUUID(), emailHash: "", expiresAt: Date.now() + TTL * 1000, completeRegistrationClaimed: false, joinGroupClaimed: false }; }
+export async function createRegistrationSession(config: CampaignConfig) { const payload: RegistrationSession = { campaignSlug: config.slug, registrationId: crypto.randomUUID(), emailHash: "", expiresAt: Date.now() + TTL * 1000, leadClaimed: false, completeRegistrationClaimed: false, joinGroupClaimed: false }; (await cookies()).set(getRegistrationCookieName(config.slug), encode(payload), options(TTL)); return payload; }
+export function createRegistrationSessionPayload(config: CampaignConfig): RegistrationSession { return { campaignSlug: config.slug, registrationId: crypto.randomUUID(), emailHash: "", expiresAt: Date.now() + TTL * 1000, leadClaimed: false, completeRegistrationClaimed: false, joinGroupClaimed: false }; }
 export function encodeRegistrationSession(session: RegistrationSession) { return encode(session); }
 export function getRegistrationSessionCookieOptions() { return options(TTL); }
 export async function readRegistrationSession(slug: string) { const payload = decode<RegistrationSession>((await cookies()).get(getRegistrationCookieName(slug))?.value); const config = getCampaignConfig(slug); return config && payload?.campaignSlug === config.slug && valid(payload.expiresAt) ? payload : null; }

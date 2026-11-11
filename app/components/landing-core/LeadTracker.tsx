@@ -1,0 +1,27 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
+export default function LeadTracker({ campaignSlug, contentName, activeCampaignFormId }: { campaignSlug: string; contentName: string; activeCampaignFormId: number }) {
+  const claimed = useRef(false);
+  useEffect(() => {
+    if (claimed.current) return;
+    claimed.current = true;
+    let cancelled = false;
+    const run = async () => {
+      for (let i = 0; i < 20 && !cancelled; i += 1) {
+        if (typeof window.fbq === "function") {
+          const response = await fetch(`/api/landings/${campaignSlug}/lead/claim`, { method: "POST", credentials: "same-origin" });
+          if (!response.ok) return;
+          const data = await response.json();
+          if (data.shouldTrack) window.fbq("track", "Lead", { content_name: contentName, landing_slug: campaignSlug, registration_type: "free_event", registration_source: "activecampaign_embed", activecampaign_form_id: activeCampaignFormId }, { eventID: data.eventId });
+          return;
+        }
+        await new Promise((resolve) => window.setTimeout(resolve, 250));
+      }
+    };
+    void run();
+    return () => { cancelled = true; };
+  }, [activeCampaignFormId, campaignSlug, contentName]);
+  return null;
+}
