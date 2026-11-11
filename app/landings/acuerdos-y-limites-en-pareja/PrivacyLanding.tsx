@@ -1,20 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ActiveCampaignEmbedForm } from "@/app/components/landing-core/ActiveCampaignEmbedForm";
-import { trackMetaCustomEvent, trackMetaEvent } from "@/lib/meta-pixel";
 import { campaignConfig } from "./campaign.config";
 import styles from "./privacy.module.css";
 
-const title = "Acuerdos y limites en pareja";
-
 export default function PrivacyLanding() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  useEffect(() => { trackMetaEvent("ViewContent", { content_name: title, content_category: "Clase gratuita" }); }, []);
-  const openRegistration = () => {
-    setIsModalOpen(true);
-    trackMetaCustomEvent("OpenRegistrationModal", { content_name: title, content_category: "Clase gratuita" });
-  };
+  const openRegistration = () => setIsModalOpen(true);
 
   return <main className={styles.page}>
     <section className={styles.hero} aria-labelledby="landing-title">
