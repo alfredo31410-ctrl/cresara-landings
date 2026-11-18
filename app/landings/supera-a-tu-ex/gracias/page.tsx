@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getCampaignConfig } from "@/lib/campaigns";
+import { getCampaignConfig, getWhatsAppGroupUrl } from "@/lib/campaigns";
 import { readRegistrationSession } from "@/lib/landing-platform/campaign-session";
 import CompleteRegistrationTracker from "@/app/components/landing-core/CompleteRegistrationTracker";
 import WhatsAppButton from "@/app/components/landing-core/WhatsAppButton";
@@ -32,6 +32,8 @@ export default async function GraciasPage() {
           <WhatsAppButton
             campaignSlug={config.slug}
             className={styles.whatsapp}
+            directGroupUrl={getWhatsAppGroupUrl(config)}
+            contentName={config.tracking!.joinGroupContentName}
           />
           <small>
             Cuando se abra WhatsApp, toca “Unirme al grupo” para terminar tu
