@@ -6,6 +6,7 @@ import { campaignConfig as demasiado } from "@/app/landings/demasiado-tiempo/cam
 import { campaignConfig as migajas } from "@/app/landings/ya-no-mas-migajas/campaign.config";
 import { campaignConfig as limites } from "@/app/landings/aprender-a-poner-limites/campaign.config";
 import { campaignConfig as acuerdosPareja } from "@/app/landings/acuerdos-y-limites-en-pareja/campaign.config";
+import { campaignConfig as superaTuEx } from "@/app/landings/supera-a-tu-ex/campaign.config";
 import type { CampaignConfig } from "./types";
 
 const campaigns: Record<string, CampaignConfig> = {
@@ -17,6 +18,7 @@ const campaigns: Record<string, CampaignConfig> = {
   [migajas.slug]: migajas,
   [limites.slug]: limites,
   [acuerdosPareja.slug]: acuerdosPareja,
+  [superaTuEx.slug]: superaTuEx,
 };
 export function getCampaignConfig(slug: string): CampaignConfig | null { return campaigns[slug] || null; }
 export function getWhatsAppGroupUrl(config: CampaignConfig) {
