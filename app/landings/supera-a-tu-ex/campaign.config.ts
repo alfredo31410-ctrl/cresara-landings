@@ -1,5 +1,5 @@
 export const campaignConfig = {
-  slug: "taller-grupal-supera-a-tu-ex",
+  slug: "supera-a-tu-ex",
   displayName: "Taller Grupal: Supera a tu Ex",
   // Conserva el mismo formulario y canal de WhatsApp de la configuración base.
   activeCampaign: { formId: 398 },

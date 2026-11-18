@@ -6,7 +6,7 @@ import WhatsAppButton from "@/app/components/landing-core/WhatsAppButton";
 import styles from "../landing.module.css";
 
 export default async function GraciasPage() {
-  const config = getCampaignConfig("taller-grupal-supera-a-tu-ex")!;
+  const config = getCampaignConfig("supera-a-tu-ex")!;
   if (!(await readRegistrationSession(config.slug)))
     redirect(`/landings/${config.slug}?registro=requerido`);
   return (
