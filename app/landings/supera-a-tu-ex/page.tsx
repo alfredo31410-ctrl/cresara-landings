@@ -22,7 +22,8 @@ export default async function Page({
     <main className={styles.page}>
       {required && (
         <p className={styles.accessAlert} role="alert">
-          Primero completa tu registro para acceder al grupo oficial de WhatsApp.
+          Primero completa tu registro para acceder al grupo oficial de
+          WhatsApp.
         </p>
       )}
 
@@ -43,10 +44,13 @@ export default async function Page({
           <h1>
             Taller Grupal: <em>Supera a tu Ex</em>
           </h1>
+          <p className={styles.eventDate}>
+            Lunes 30 de noviembre · 11:00 AM (Hora CDMX)
+          </p>
           <p className={styles.lead}>
             Deja de vivir pendiente de un mensaje, una señal o un regreso.
-            Aprende a cerrar el capítulo, soltar el vínculo y avanzar sin dejarte
-            atrás.
+            Aprende a cerrar el capítulo, soltar el vínculo y avanzar sin
+            dejarte atrás.
           </p>
 
           <div className={styles.path} aria-label="Ruta del taller">
@@ -92,17 +96,25 @@ export default async function Page({
             <article>
               <b>✦</b>
               <h3>Rompe el ciclo</h3>
-              <p>Entiende por qué sigues buscando señales y cómo salir de ese patrón.</p>
+              <p>
+                Entiende por qué sigues buscando señales y cómo salir de ese
+                patrón.
+              </p>
             </article>
             <article>
               <b>✦</b>
               <h3>Despídete con claridad</h3>
-              <p>Reconoce qué te toca soltar para cerrar la relación desde la paz.</p>
+              <p>
+                Reconoce qué te toca soltar para cerrar la relación desde la
+                paz.
+              </p>
             </article>
             <article>
               <b>✦</b>
               <h3>Vuelve a avanzar</h3>
-              <p>Recupera tu energía, tus planes y la vida que también es tuya.</p>
+              <p>
+                Recupera tu energía, tus planes y la vida que también es tuya.
+              </p>
             </article>
           </div>
         </section>

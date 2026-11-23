@@ -7,5 +7,5 @@ export const campaignConfig = {
     completeRegistrationContentName: "Taller Grupal: Supera a tu Ex",
     joinGroupContentName: "Taller Grupal: Supera a tu Ex",
   },
-  whatsapp: { url: "https://chat.whatsapp.com/ES3ghs0HZUuBVCwduFKWXo" },
+  whatsapp: { url: "https://chat.whatsapp.com/BwJ7Jf3YDL891r0wCSWMlc" },
 } as const;
